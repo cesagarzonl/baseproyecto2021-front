@@ -1,0 +1,21 @@
+<form [formGroup]="usaurioForm" (ngSubmit)="onSubmit()">
+  
+    <label>
+      email:
+      <input type="text" formControlName="email">
+    </label>
+  
+    <label>
+        password:
+      <input type="text" formControlName="password">
+    </label>
+  
+    <label>
+        usuario:
+      <input type="text" formControlName="usuario">
+    </label>
+    <button type="submit" [disabled]="!usaurioForm.valid">Submit</button>
+</form>
+<p>
+    Form Status: {{ usaurioForm.status }}
+  </p>
