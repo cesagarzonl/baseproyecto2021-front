@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder,Validators,FormArray } from '@angular/forms';
+import { UsusuarioService } from '../../../service/ususuario.service'
 
 @Component({
   selector: 'app-crear',
@@ -15,16 +16,16 @@ export class CrearComponent implements OnInit {
     this.name.setValue('Nancy');
   }*/
   usaurioForm = this.fb.group({
-    email: ['',Validators.required],
-    password: ['',Validators.required],
-    usuario: ['',Validators.required],
-    _id: [''],
-    adicionales: this.fb.array([
-      this.fb.control('')
-    ]),
+    email: [null,Validators.required],
+    password: [null,Validators.required],
+    usuario: [null,Validators.required],
+    _id: [null],
+    //adicionales: this.fb.array([
+      //this.fb.control('')
+    //]),
   });
 
-  get adicionales() {
+  /*get adicionales() {
     return this.usaurioForm.get('adicionales') as FormArray;
   }
 
@@ -40,7 +41,17 @@ export class CrearComponent implements OnInit {
   })*/
 
   onSubmit(){
-    console.warn(this.usaurioForm.value);
+    if(this.usaurioForm.valid){
+      console.warn(this.usaurioForm.value);      
+      this.ususuarioService
+        .postUserCreate(this.usaurioForm.value)
+        .subscribe((data)=>{
+          console.log('data',data)
+        })
+    }
   }
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private ususuarioService:UsusuarioService
+    ) { }
 }

@@ -1,2 +1,5 @@
 <h1>Lista de usuarios</h1>
-<p *ngFor="let usuario of Usuarios.usuario"  >{{usuario.usuario}}  </p>
+<p *ngFor="let usuario of Usuarios.usuario"  >{{usuario.usuario}}  
+    <a [routerLink]="['/usuario/editar',usuario._id]">
+        Editar</a>
+</p>

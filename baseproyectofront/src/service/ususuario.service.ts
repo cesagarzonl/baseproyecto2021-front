@@ -11,13 +11,20 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsusuarioService {
 
-  
+
+
   constructor(private http: HttpClient) { }
-  
-  getUserList(){
-    
-    return this.http.get('http://localhost:3000/user',{responseType: 'json'});
+  dominio:string = 'http://localhost:3000/'
+  getUserList(){  
+    return this.http.get(this.dominio+'user',{responseType: 'json'});
+  }
+  postUserCreate(user:any){  
+    return this.http.post(this.dominio+'user/crear',user,{responseType: 'json'});
+  }
+  getUserIdDetalle(id:any){  
+    return this.http.get(this.dominio+'user/byId/'+id,{responseType: 'json'});
   }
 }

@@ -9,12 +9,14 @@ import { CrearComponent } from './usuario/crear/crear.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { EditarComponent } from './usuario/editar/editar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
-    CrearComponent
+    CrearComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
