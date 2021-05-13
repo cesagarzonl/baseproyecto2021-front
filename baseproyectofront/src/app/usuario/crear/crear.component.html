@@ -1,24 +1,30 @@
 <form [formGroup]="usaurioForm" (ngSubmit)="onSubmit()">
   
-    <label>
-      email:
-      <input type="text" formControlName="email">
-      <div  *ngIf="usaurioForm.controls['email'].hasError('required') && usaurioForm.controls['email'].touched">
-        El email es requerido
-      </div>
-    </label>
-  
-    <label>
-        password:
-      <input type="text" formControlName="password">
-    </label>
-  
-    <label>
-        usuario:
-      <input type="text" formControlName="usuario">
-    </label>
-    <button type="submit" [disabled]="!usaurioForm.valid">Submit</button>
+  <label>
+    email:
+    <input type="text" formControlName="email">
+    <span  *ngIf="usaurioForm.controls['email'].hasError('required') && usaurioForm.controls['email'].touched">
+      El Email es requerido
+    </span>
+  </label>
+
+  <label>
+      password:
+    <input type="text" formControlName="password">
+    <span  *ngIf="usaurioForm.controls['password'].hasError('required') && usaurioForm.controls['password'].touched">
+      La Contraseña es requerida
+    </span>
+  </label>
+
+  <label>
+      usuario:
+    <input type="text" formControlName="usuario">
+    <span  *ngIf="usaurioForm.controls['usuario'].hasError('required') && usaurioForm.controls['usuario'].touched">
+      El Usuario es requerido
+    </span>
+  </label>
+  <button type="submit" [disabled]="!usaurioForm.valid">Submit</button>
 </form>
 <p>
-    Form Status: {{ usaurioForm.status }}
-  </p>
+  Form Status: {{ usaurioForm.status }}
+</p>

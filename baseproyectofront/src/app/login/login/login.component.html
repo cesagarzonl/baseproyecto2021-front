@@ -1,0 +1,23 @@
+<form [formGroup]="usaurioForm" (ngSubmit)="onSubmit()">
+
+    <div *ngIf="mensaje != '' ">
+        <p>{{mensaje}} </p>
+    </div>
+    
+    <label>
+      email:
+      <input type="text" formControlName="email">
+      <span  *ngIf="usaurioForm.controls['email'].hasError('required') && usaurioForm.controls['email'].touched">
+        El Email es requerido
+      </span>
+    </label>
+  
+    <label>
+        password:
+      <input type="text" formControlName="password">
+      <span  *ngIf="usaurioForm.controls['password'].hasError('required') && usaurioForm.controls['password'].touched">
+        La Contraseña es requerida
+      </span>
+    </label>
+    <button type="submit" [disabled]="!usaurioForm.valid">Submit</button>
+  </form>

@@ -10,13 +10,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { EditarComponent } from './usuario/editar/editar.component';
+import { LoginComponent } from './login/login/login.component';
+import { LogoutComponent } from './login/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
     CrearComponent,
-    EditarComponent
+    EditarComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

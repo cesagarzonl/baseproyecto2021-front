@@ -341,5 +341,10 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<p *ngIf="usuario!=''">
+  {{usuario}}
+</p>
+<a [routerLink]="['/logout']">
+  Salir</a>
 
 <router-outlet></router-outlet>
