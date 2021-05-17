@@ -12,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditarComponent implements OnInit {
 
+  mensaje:string=""
+  mostrar:boolean = false
 
 
   ngOnInit(): void {

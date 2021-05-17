@@ -1,0 +1,14 @@
+<div *ngIf="usuario">
+    <p>
+        {{usuario.usuario}}
+      </p>
+      <a  [routerLink]="['/usuario/editar/',usuario._id]">
+        Editar</a>
+
+      <a  [routerLink]="['/logout']">
+        Salir</a>
+</div>
+<div *ngIf="!usuario">
+    <a  [routerLink]="['/login']">
+        Login</a>
+</div>

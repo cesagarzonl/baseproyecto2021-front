@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder,Validators,FormArray } from '@angular/forms';
 import { UsusuarioService } from '../../../service/ususuario.service'
+import { NotificacionesService } from '../../../service/notificaciones.service'
 
 @Component({
   selector: 'app-crear',
@@ -9,6 +10,8 @@ import { UsusuarioService } from '../../../service/ususuario.service'
   styleUrls: ['./crear.component.css']
 })
 export class CrearComponent implements OnInit {
+  mensaje:string=""
+  mostrar:any=false
 
   ngOnInit(): void {
   }
@@ -45,13 +48,15 @@ export class CrearComponent implements OnInit {
       console.warn(this.usaurioForm.value);      
       this.ususuarioService
         .postUserCreate(this.usaurioForm.value)
-        .subscribe((data)=>{
+        .subscribe((data:any)=>{
           console.log('data',data)
+          this.notificacionesService.ErrorMensaje(true,data.menssaje)
         })
     }
   }
   constructor(
     private fb: FormBuilder,
-    private ususuarioService:UsusuarioService
+    private ususuarioService:UsusuarioService,
+    private notificacionesService:NotificacionesService
     ) { }
 }

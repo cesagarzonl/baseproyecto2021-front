@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,Directive } from '@angular/core';
 
-import { FormBuilder,Validators,FormArray } from '@angular/forms';
+import { FormBuilder,Validators } from '@angular/forms';
 
 import { LoginService } from '../../../service/login.service'
 
 import { Router} from '@angular/router';
+
+
+
+@Directive({selector: 'app-usuariologueado'})
+class ChildDirective {
+}
 
 @Component({
   selector: 'app-login',
@@ -12,6 +18,10 @@ import { Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  @ViewChild(ChildDirective) child!: ChildDirective;
+
+
   mensaje:string=''
 
   ngOnInit(): void {
@@ -21,7 +31,9 @@ export class LoginComponent implements OnInit {
     password: [null,Validators.required]
 
   });
+  ngAfterViewInit() {
 
+  }
   onSubmit(){
     if(this.usaurioForm.valid){
       console.warn(this.usaurioForm.value);      

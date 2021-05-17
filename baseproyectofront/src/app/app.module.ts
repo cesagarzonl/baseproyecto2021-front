@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditarComponent } from './usuario/editar/editar.component';
 import { LoginComponent } from './login/login/login.component';
 import { LogoutComponent } from './login/logout/logout.component';
+import { UsuariologueadoComponent } from './login/usuariologueado/usuariologueado.component';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { LogoutComponent } from './login/logout/logout.component';
     CrearComponent,
     EditarComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    UsuariologueadoComponent,
+    MensajesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
