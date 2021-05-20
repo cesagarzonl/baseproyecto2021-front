@@ -1,0 +1,24 @@
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+  
+    <label>
+       Nombre:
+      <input type="text" formControlName="nombre">
+      <span  *ngIf="productoForm.controls['nombre'].hasError('required') && productoForm.controls['nombre'].touched">
+        El Nombre es requerido
+      </span>
+    </label>
+  
+    <label>
+        Descripcion:
+      <input type="text" formControlName="descripcion">
+      <span  *ngIf="productoForm.controls['descripcion'].hasError('required') && productoForm.controls['descripcion'].touched">
+        La Descripcion es requerida
+      </span>
+    </label>
+  
+    <button type="submit" [disabled]="!productoForm.valid">Submit</button>
+  </form>
+  <p>
+    Form Status: {{ productoForm.status }}
+  </p>
+  

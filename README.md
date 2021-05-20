@@ -6,3 +6,6 @@
 # crear modulos ng generate component usuario/crear
 
 # ng generate service login
+
+
+# ng generate service notificaciones

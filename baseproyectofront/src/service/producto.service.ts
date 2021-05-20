@@ -6,13 +6,10 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-
-export class UsusuarioService {
+export class ProductoService {
 
   token:string="";
   httpOptions:any
@@ -22,7 +19,6 @@ export class UsusuarioService {
     let tokenLocal = JSON.parse(tokenLocalString)
     if(tokenLocalString!=null){
       this.token=JSON.parse(tokenLocalString)
-
     }
 
     this.httpOptions = {
@@ -35,14 +31,14 @@ export class UsusuarioService {
   dominio:string = 'http://localhost:3000/'
 
 
-  getUserList(){
+  getProductoList(){
 
-    return this.http.get(this.dominio+'user',this.httpOptions);
+    return this.http.get(this.dominio+'producto',this.httpOptions);
   }
-  postUserCreate(user:any){  
-    return this.http.post(this.dominio+'user/crear',user,{responseType: 'json'});
+  postProductoCreate(user:any){  
+    return this.http.post(this.dominio+'producto/crear',user,this.httpOptions);
   }
-  getUserIdDetalle(id:any){  
-    return this.http.get(this.dominio+'user/byId/'+id,{responseType: 'json'});
+  getProductoIdDetalle(id:any){  
+    return this.http.get(this.dominio+'producto/byId/'+id,this.httpOptions);
   }
 }

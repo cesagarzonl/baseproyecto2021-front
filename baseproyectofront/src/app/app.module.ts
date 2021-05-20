@@ -16,6 +16,13 @@ import { UsuariologueadoComponent } from './login/usuariologueado/usuariologuead
 import { MensajesComponent } from './mensajes/mensajes.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductoCrearComponent } from './producto/producto-crear/producto-crear.component';
+import { ProductoEditarComponent } from './producto/producto-editar/producto-editar.component';
+import { ProductoListarComponent } from './producto/producto-listar/producto-listar.component';
+//Import Angular material
+import { MatMenuModule} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon'
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     LogoutComponent,
     UsuariologueadoComponent,
-    MensajesComponent
+    MensajesComponent,
+    ProductoCrearComponent,
+    ProductoEditarComponent,
+    ProductoListarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
