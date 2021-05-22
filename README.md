@@ -7,5 +7,10 @@
 
 # ng generate service login
 
-
 # ng generate service notificaciones
+
+
+
+ng generate component negocio/Negocio-crear
+ng generate component negocio/Negocio-editar
+ng generate component negocio/Negocio-listar

@@ -1,0 +1,29 @@
+<form [formGroup]="negocioForm" (ngSubmit)="onSubmit()">
+  
+  <label>
+     Nombre:
+    <input type="text" formControlName="nombre">
+    <span  *ngIf="negocioForm.controls['nombre'].hasError('required') && negocioForm.controls['nombre'].touched">
+      El Nombre es requerido
+    </span>
+  </label>
+
+  <label>
+      Descripcion:
+    <input type="text" formControlName="descripcion">
+    <span  *ngIf="negocioForm.controls['descripcion'].hasError('required') && negocioForm.controls['descripcion'].touched">
+      La Descripcion es requerida
+    </span>
+  </label>
+  
+  <label>
+      Imagen:
+      <input type="file" (change)="onFileChange($event)" />
+  </label>
+  <button type="submit" [disabled]="!negocioForm.valid">Submit</button>
+  <img src="{{imagenurl}}">
+
+</form>
+<p>
+  Form Status: {{ negocioForm.status }}
+</p>

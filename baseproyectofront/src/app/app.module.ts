@@ -23,6 +23,9 @@ import { ProductoListarComponent } from './producto/producto-listar/producto-lis
 import { MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon'
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { NegocioCrearComponent } from './negocio/negocio-crear/negocio-crear.component';
+import { NegocioEditarComponent } from './negocio/negocio-editar/negocio-editar.component';
+import { NegocioListarComponent } from './negocio/negocio-listar/negocio-listar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MensajesComponent,
     ProductoCrearComponent,
     ProductoEditarComponent,
-    ProductoListarComponent
+    ProductoListarComponent,
+    NegocioCrearComponent,
+    NegocioEditarComponent,
+    NegocioListarComponent
   ],
   imports: [
     BrowserModule,

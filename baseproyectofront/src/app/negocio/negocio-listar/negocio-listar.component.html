@@ -1,0 +1,5 @@
+<h1>Lista de Negocios</h1>
+<p *ngFor="let negocio of Negocios"  >{{negocio.nombre}}  
+    <a [routerLink]="['/negocio/editar',negocio._id]">
+        Editar</a>
+</p>

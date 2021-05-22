@@ -7,10 +7,12 @@ import { usuariosRoutes } from './usuario/usuarioRoutes'
 import { productosRoutes } from './producto/productoRoutes'
 import { LoginComponent } from './login/login/login.component'
 import { LogoutComponent } from './login/logout/logout.component'
+import { negociosRoutes } from './negocio/negocioRoutes'
 
 const routes: Routes = [
   { path: 'usuario', children: usuariosRoutes},
   { path: 'producto', children: productosRoutes},
+  { path: 'negocio', children: negociosRoutes},
   { path: 'login',component: LoginComponent},
   { path: 'logout',component: LogoutComponent},  
 ];
