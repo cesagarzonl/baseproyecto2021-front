@@ -23,9 +23,14 @@ import { ProductoListarComponent } from './producto/producto-listar/producto-lis
 import { MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon'
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+//Componenetes 
 import { NegocioCrearComponent } from './negocio/negocio-crear/negocio-crear.component';
 import { NegocioEditarComponent } from './negocio/negocio-editar/negocio-editar.component';
 import { NegocioListarComponent } from './negocio/negocio-listar/negocio-listar.component';
+import { FooterComponent } from './footer/footer/footer.component';
+import { NegocioDetalleComponent } from './negocio/negocio-detalle/negocio-detalle.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,9 @@ import { NegocioListarComponent } from './negocio/negocio-listar/negocio-listar.
     ProductoListarComponent,
     NegocioCrearComponent,
     NegocioEditarComponent,
-    NegocioListarComponent
+    NegocioListarComponent,
+    FooterComponent,
+    NegocioDetalleComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,9 @@ import { NegocioListarComponent } from './negocio/negocio-listar/negocio-listar.
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

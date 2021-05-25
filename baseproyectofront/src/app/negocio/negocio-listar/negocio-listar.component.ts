@@ -7,7 +7,7 @@ import { NegocioService } from "../../../service/negocio.service"
   styleUrls: ['./negocio-listar.component.css']
 })
 export class NegocioListarComponent implements OnInit {
-
+  Url:string = 'http://localhost:3000/static/negocios/'
   Negocios:any = []
   constructor(private negocioService:NegocioService) { }
 

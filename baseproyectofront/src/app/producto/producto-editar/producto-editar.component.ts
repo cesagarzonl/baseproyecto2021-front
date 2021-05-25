@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators,FormArray } from '@angular/forms';
 import { NotificacionesService } from '../../../service/notificaciones.service'
 import { ProductoService } from "../../../service/producto.service"
-
+import { NegocioService } from "../../../service/negocio.service"
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-producto-editar',
@@ -17,9 +17,10 @@ export class ProductoEditarComponent implements OnInit {
   url:string = 'http://localhost:3000/static/imgusers/'
   imagenurl:string = ''
   private fileName:any;
+  empresas:any = []
 
   ngOnInit(): void {
-
+    this.getEmpresasByusuario()
   }
   _id:any
 
@@ -27,6 +28,7 @@ export class ProductoEditarComponent implements OnInit {
     nombre: [null,Validators.required],
     descripcion: [null,Validators.required],
     file:[null],
+    negocio:[null,Validators.required],
     _id: [null]
   }); 
 
@@ -71,20 +73,27 @@ export class ProductoEditarComponent implements OnInit {
           nombre: data.nombre,
           descripcion: data.descripcion,
           _id:data._id,
+          negocio:data.negocio,
           file:null
        });
       })
     });
   }
 
-
+  getEmpresasByusuario(){
+    this.megocioService.getNegociobyuser().subscribe((res:any)=>{
+      console.log(res)
+      this.empresas = res.data.negocio
+    })
+  }
 
 
 
   constructor(
     private fb: FormBuilder,
     private productoService:ProductoService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private megocioService:NegocioService
     ) {
       this.solicitaUsuario()
     }

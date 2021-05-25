@@ -16,6 +16,22 @@
       </span>
     </label>
   
+    <label>
+      Empresa:
+      <select name="negocio" formControlName="negocio">
+        <option value="" select>Seleccione una empresa</option>
+        <option *ngFor ="let empresa of empresas" value="{{empresa._id}}">{{empresa.nombre}}</option>
+      </select>
+
+    <span  *ngIf="productoForm.controls['negocio'].hasError('required') && productoForm.controls['negocio'].touched">
+      La Empresa es requerida
+    </span>
+  </label>
+    <label>
+        Imagen:
+        <input type="file" (change)="onFileChange($event)" />
+    </label>
+
     <button type="submit" [disabled]="!productoForm.valid">Submit</button>
   </form>
   <p>

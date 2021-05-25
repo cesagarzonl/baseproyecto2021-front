@@ -1,0 +1,40 @@
+
+
+<div class="card-section">
+        <section class="imgprincipal">
+            <img mat-card-image src="{{url}}{{negocio.imagen}} " alt="{{negocio.nombre}}" >
+        </section>
+
+            <mat-card class="card-section descripcion">
+              <mat-card-header >
+                <h1>{{negocio.nombre}} </h1>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{negocio.descripcion}}</p>
+              </mat-card-content>
+              </mat-card>
+</div>
+
+<h2 class="paddingmargin1">Lista de Productos de {{negocio.nombre}} </h2>
+
+<section class="card-section">
+    <mat-card  *ngFor="let producto of Productos" class="card">
+      <mat-card-header >
+        <mat-card-title>{{producto.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{producto.nombre}}</mat-card-subtitle>
+      </mat-card-header>
+      <a [routerLink]="['/producto/detalle',producto._id]">
+        <img mat-card-image src="{{urlproductos}}{{producto.imagen}} " alt="{{negocio.nombre}}">
+      </a>
+      <mat-card-content>
+        <p>{{producto.descripcion}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+          <a [routerLink]="['/producto/detalle',producto._id]">
+              <button mat-button >LIKE</button>
+          </a>
+  
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+      </mat-card>
+</section>

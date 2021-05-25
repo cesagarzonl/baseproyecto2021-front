@@ -2,34 +2,37 @@
     <a  [routerLink]="['/login']">
         Login</a>
 </div>
-<mat-sidenav-container class="example-container" *ngIf="usuario">
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
-    <button mat-menu-item [routerLink]="['/usuario/editar/',usuario._id]">
-      <mat-icon>notifications_off</mat-icon>
-      <span>{{usuario.usuario}}</span>
-    </button>
-    <button mat-menu-item [routerLink]="['/logout']">
-      <mat-icon>notifications_off</mat-icon>
-      <span>Salir</span>
-    </button>
-  </mat-menu>
-  <p>
-    
-  </p>
-</mat-sidenav-container>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <mat-sidenav-container  class="example-container" *ngIf="usuario">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="espacioMenuBoton">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item  [routerLink]="['/negocio/list']">
+          <mat-icon>business_center</mat-icon>
+          <span>Negocios</span>
+        </button>
+        <button mat-menu-item  [routerLink]="['/producto/list']" >
+          <mat-icon>shopping_basket</mat-icon>
+          <span>Productos</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/usuario/editar/',usuario._id]">
+          <mat-icon>person</mat-icon>
+          <span>{{usuario.usuario}}</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/logout']">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Salir</span>
+        </button>
+      </mat-menu>
+    </mat-sidenav-container>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+
 

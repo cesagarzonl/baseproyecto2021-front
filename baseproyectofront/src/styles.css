@@ -1,4 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:#eee;}
+
+.card-section{
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.card {
+    max-width: 28%;
+    width: 28%;
+    margin:1%;
+    padding:1%;
+    flex: 1 1 auto;
+}
+  
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.paddingmargin1{
+    margin:1%;
+    padding:1%;
+}

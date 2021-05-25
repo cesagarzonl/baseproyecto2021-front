@@ -1,0 +1,7 @@
+.footer-container {
+    position: relative;
+    bottom: 0;
+    padding: 15px;
+    background-color: gray;
+    width:100%;
+}

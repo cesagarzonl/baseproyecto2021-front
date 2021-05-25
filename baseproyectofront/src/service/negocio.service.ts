@@ -40,4 +40,7 @@ export class NegocioService {
   getNegocioIdDetalle(id:any){  
     return this.http.get(this.dominio+'negocio/byId/'+id,this.httpOptions);
   }
+  getNegociobyuser(){
+    return this.http.get(this.dominio+'negocio/empresasUser',this.httpOptions);
+  }
 }
