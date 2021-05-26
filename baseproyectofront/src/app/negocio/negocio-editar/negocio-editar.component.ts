@@ -64,7 +64,8 @@ export class NegocioEditarComponent implements OnInit {
       this.negocioService
       .getNegocioIdDetalle(this._id)
       .subscribe((res:any)=>{
-        let data =res.data
+        console.log('res',res)
+        let data =res.data.negocio
         this.imagenurl = this.url+data.imagen
         this.negocioForm.setValue({
           nombre: data.nombre,

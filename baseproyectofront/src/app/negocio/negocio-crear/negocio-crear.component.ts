@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators,FormArray } from '@angular/forms';
 import { NotificacionesService } from '../../../service/notificaciones.service'
 import { NegocioService } from '../../../service/negocio.service'
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-negocio-crear',
@@ -30,7 +30,7 @@ export class NegocioCrearComponent implements OnInit {
       this.negocioService
       .postNegocioCreate(this.negocioForm.value)
       .subscribe((data:any)=>{
-        console.log('data',data.mensaje)
+        this.router.navigate(["/negocio/editar",data.data._id])
         this.notificacionesService.ErrorMensaje(true,data.mensaje)
       })
     }
@@ -55,7 +55,8 @@ export class NegocioCrearComponent implements OnInit {
   constructor(    
     private fb: FormBuilder,
     private negocioService:NegocioService,
-    private notificacionesService:NotificacionesService) 
+    private notificacionesService:NotificacionesService,
+    private router:Router)
     { }
 
 

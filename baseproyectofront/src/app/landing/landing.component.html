@@ -1,0 +1,57 @@
+<section class="imgback ">
+    <div class="inputpositiondiv paddingmargin1">
+        <input type="search" class="inputsearch">
+        <mat-icon class="iconsearch">search</mat-icon>
+    </div>
+</section>
+
+<section class="paddingmargin1">
+    <h2>Negocios Desctacadas</h2>
+    <section class="card-section">
+        <mat-card  *ngFor="let negocio of Negocios" class="card">
+          <mat-card-header class="paddingmargin1">
+            <mat-card-title>{{negocio.nombre}}</mat-card-title>
+            <mat-card-subtitle>{{negocio.nombre}}</mat-card-subtitle>
+          </mat-card-header>
+          <a [routerLink]="['/negocio/detalle',negocio._id]">
+            <img mat-card-image src="{{Url}}{{negocio.imagen}} " alt="{{negocio.nombre}}">
+          </a>
+          <mat-card-content>
+            <p>{{negocio.descripcion}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+              <a [routerLink]="['/negocio/detalle',negocio._id]">
+                  <button mat-button >Detalle</button>
+              </a>
+              <a [routerLink]="['/negocio/editar',negocio._id]">
+                <button mat-button >editar</button>
+            </a>
+            </mat-card-actions>
+          </mat-card>
+    </section>
+</section>
+<section class="paddingmargin1">
+    <h2>Productos Desctacadas</h2>
+    <section class="card-section">
+        <mat-card  *ngFor="let producto of Productos" class="card">
+          <mat-card-header class="paddingmargin1">
+            <mat-card-title>{{producto.nombre}}</mat-card-title>
+            <mat-card-subtitle>{{producto.nombre}}</mat-card-subtitle>
+          </mat-card-header>
+          <a [routerLink]="['/producto/detalle',producto._id]">
+            <img mat-card-image src="{{url}}{{producto.imagen}} " alt="{{producto.nombre}}">
+          </a>
+          <mat-card-content>
+            <p>{{producto.descripcion}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+              <a [routerLink]="['/producto/detalle',producto._id]">
+                  <button mat-button >Detalle</button>
+              </a>
+              <a [routerLink]="['/producto/editar',producto._id]">
+                <button mat-button >editar</button>
+            </a>
+            </mat-card-actions>
+          </mat-card>
+    </section>
+</section>

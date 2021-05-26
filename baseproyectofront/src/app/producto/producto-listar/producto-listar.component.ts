@@ -8,6 +8,7 @@ import { ProductoService } from "../../../service/producto.service"
 })
 export class ProductoListarComponent implements OnInit {
   Productos:any = []
+  url:string = 'http://localhost:3000/static/imgusers/'
   constructor(private productoService:ProductoService) { }
 
   ngOnInit(): void {

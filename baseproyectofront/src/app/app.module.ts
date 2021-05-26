@@ -31,6 +31,8 @@ import { NegocioEditarComponent } from './negocio/negocio-editar/negocio-editar.
 import { NegocioListarComponent } from './negocio/negocio-listar/negocio-listar.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { NegocioDetalleComponent } from './negocio/negocio-detalle/negocio-detalle.component';
+import { ProductoDetalleComponent } from './producto/producto-detalle/producto-detalle.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { NegocioDetalleComponent } from './negocio/negocio-detalle/negocio-detal
     NegocioEditarComponent,
     NegocioListarComponent,
     FooterComponent,
-    NegocioDetalleComponent
+    NegocioDetalleComponent,
+    ProductoDetalleComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

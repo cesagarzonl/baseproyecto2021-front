@@ -4,6 +4,7 @@ import { ProductoService } from "../../../service/producto.service"
 import { NotificacionesService } from '../../../service/notificaciones.service'
 import { NegocioService } from "../../../service/negocio.service"
 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-crear',
@@ -34,6 +35,7 @@ export class ProductoCrearComponent implements OnInit {
       this.productoService
       .postProductoCreate(this.productoForm.value)
       .subscribe((data:any)=>{
+        this.router.navigate(["/producto/editar",data.data.productos._id])
         this.notificacionesService.ErrorMensaje(true,data.mensaje)
       })
     }
@@ -64,6 +66,7 @@ export class ProductoCrearComponent implements OnInit {
     private fb: FormBuilder,
     private productoService:ProductoService,
     private notificacionesService:NotificacionesService,
-    private megocioService:NegocioService) 
+    private megocioService:NegocioService,
+    private router:Router)
     { }
 }

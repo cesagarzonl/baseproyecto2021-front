@@ -43,4 +43,7 @@ export class NegocioService {
   getNegociobyuser(){
     return this.http.get(this.dominio+'negocio/empresasUser',this.httpOptions);
   }
+  getNegociosDestacados(){
+    return this.http.get(this.dominio+'negocio/destacados',this.httpOptions);
+  }
 }

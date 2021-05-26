@@ -1,8 +1,7 @@
 <h1>Lista de Negocios</h1>
 <section class="card-section">
     <mat-card  *ngFor="let negocio of Negocios" class="card">
-      <mat-card-header >
-        <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-header class="paddingmargin1">
         <mat-card-title>{{negocio.nombre}}</mat-card-title>
         <mat-card-subtitle>{{negocio.nombre}}</mat-card-subtitle>
       </mat-card-header>
@@ -14,11 +13,12 @@
       </mat-card-content>
       <mat-card-actions>
           <a [routerLink]="['/negocio/detalle',negocio._id]">
-              <button mat-button >LIKE</button>
+              <button mat-button >Detalle</button>
           </a>
-  
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
+          <a [routerLink]="['/negocio/editar',negocio._id]">
+            <button mat-button >editar</button>
+        </a>
+        </mat-card-actions>
       </mat-card>
 </section>
   

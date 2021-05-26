@@ -1,12 +1,8 @@
-<div *ngIf="!usuario">
-    <a  [routerLink]="['/login']">
-        Login</a>
-</div>
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>My App</span>
+    <span style="cursor: pointer;" [routerLink]="['/']" >SCIO</span>
     <span class="example-spacer"></span>
-    <mat-sidenav-container  class="example-container" *ngIf="usuario">
+    <mat-sidenav-container  class="example-container">
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="espacioMenuBoton">
         <mat-icon>menu</mat-icon>
       </button>
@@ -19,14 +15,23 @@
           <mat-icon>shopping_basket</mat-icon>
           <span>Productos</span>
         </button>
-        <button mat-menu-item [routerLink]="['/usuario/editar/',usuario._id]">
+        <button mat-menu-item [routerLink]="['/usuario/editar/',usuario._id]"  *ngIf="usuario">
           <mat-icon>person</mat-icon>
           <span>{{usuario.usuario}}</span>
         </button>
-        <button mat-menu-item [routerLink]="['/logout']">
+        <button mat-menu-item [routerLink]="['/logout']"  *ngIf="usuario">
           <mat-icon>exit_to_app</mat-icon>
           <span>Salir</span>
         </button>
+        <button mat-menu-item [routerLink]="['/login']"  *ngIf="!usuario">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Login </span>
+        </button>
+        <button mat-menu-item [routerLink]="['/usuario/crear']"  *ngIf="!usuario">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Registro </span>
+        </button>
+
       </mat-menu>
     </mat-sidenav-container>
   </mat-toolbar-row>

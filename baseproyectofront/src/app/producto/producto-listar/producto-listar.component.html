@@ -1,5 +1,23 @@
 <h1>Lista de productos</h1>
-<p *ngFor="let productos of Productos"  >{{productos.nombre}}  
-    <a [routerLink]="['/producto/editar',productos._id]">
-        Editar</a>
-</p>
+<section class="card-section">
+    <mat-card  *ngFor="let producto of Productos" class="card">
+      <mat-card-header class="paddingmargin1">
+        <mat-card-title>{{producto.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{producto.nombre}}</mat-card-subtitle>
+      </mat-card-header>
+      <a [routerLink]="['/producto/detalle',producto._id]">
+        <img mat-card-image src="{{url}}{{producto.imagen}} " alt="{{producto.nombre}}">
+      </a>
+      <mat-card-content>
+        <p>{{producto.descripcion}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+          <a [routerLink]="['/producto/detalle',producto._id]">
+              <button mat-button >Detalle</button>
+          </a>
+          <a [routerLink]="['/producto/editar',producto._id]">
+            <button mat-button >editar</button>
+        </a>
+        </mat-card-actions>
+      </mat-card>
+</section>
