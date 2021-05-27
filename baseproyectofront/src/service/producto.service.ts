@@ -38,6 +38,9 @@ export class ProductoService {
   postProductoCreate(user:any){  
     return this.http.post(this.dominio+'producto/crear',user,this.httpOptions);
   }
+  postCaracteristicasCreate(user:any){  
+    return this.http.post(this.dominio+'caracteristicas/crear',user,this.httpOptions);
+  }
   getProductoIdDetalle(id:any){  
     return this.http.get(this.dominio+'producto/byId/'+id,this.httpOptions);
   }

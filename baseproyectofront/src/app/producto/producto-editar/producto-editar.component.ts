@@ -29,8 +29,23 @@ export class ProductoEditarComponent implements OnInit {
     descripcion: [null,Validators.required],
     file:[null],
     negocio:[null,Validators.required],
-    _id: [null]
+    _id: [null],
+    caracteretisticas: this.fb.array([
+      this.fb.control('')
+    ])
   }); 
+
+
+  get caracteretisticas() {
+    return this.productoForm.get('caracteretisticas') as FormArray;
+  }
+  addAlias(text:string) {
+    this.caracteretisticas.push(this.fb.control((text)? text:''));
+  }
+  clearAlias(i:number){
+    this.caracteretisticas.removeAt(i);
+  }
+
 
   onSubmit(){
     if(this.productoForm.valid){
@@ -42,7 +57,6 @@ export class ProductoEditarComponent implements OnInit {
         })
     }
   }
-
 
 
   public onFileChange(event:any) {
@@ -69,12 +83,22 @@ export class ProductoEditarComponent implements OnInit {
       .subscribe((res:any)=>{
         let data =res.data
         this.imagenurl = this.url+data.imagen
+        let producto = data.producto
+        let caracteristicas = data.caracteristicas
+
+        for (let index = 0; index < caracteristicas.length; index++) {
+          if(caracteristicas[index].descripcion){
+            this.addAlias(caracteristicas[index].descripcion)
+          }
+        }
+
         this.productoForm.setValue({
-          nombre: data.nombre,
-          descripcion: data.descripcion,
-          _id:data._id,
-          negocio:data.negocio,
-          file:null
+          nombre: producto.nombre,
+          descripcion: producto.descripcion,
+          _id:producto._id,
+          negocio:producto.negocio,
+          file:null,
+          caracteretisticas:[]
        });
       })
     });
@@ -82,7 +106,6 @@ export class ProductoEditarComponent implements OnInit {
 
   getEmpresasByusuario(){
     this.megocioService.getNegociobyuser().subscribe((res:any)=>{
-      console.log(res)
       this.empresas = res.data.negocio
     })
   }

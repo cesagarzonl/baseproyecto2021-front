@@ -30,11 +30,22 @@
         Imagen:
         <input type="file" (change)="onFileChange($event)" />
     </label>
-    <button type="submit" [disabled]="!productoForm.valid">Submit</button>
     <img src="{{imagenurl}}">
+    <button (click)="addAlias('')"><mat-icon>add</mat-icon></button>
+    <div formArrayName="caracteretisticas">  
+      <div *ngFor="let caracteretistica of caracteretisticas.controls; let i=index">
+        <label>
+          Caracteretistica:
+          <input type="text" [formControlName]="i">
+          <button (click)="clearAlias(i)"><mat-icon>clear</mat-icon></button>        
+        </label>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!productoForm.valid">Submit</button>
+</form>
+<p>
+  Form Status: {{ productoForm.status }}
+</p>
 
-  </form>
-  <p>
-    Form Status: {{ productoForm.status }}
-  </p>
-  
+
+ 
