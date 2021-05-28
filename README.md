@@ -14,3 +14,9 @@
 ng generate component negocio/Negocio-crear
 ng generate component negocio/Negocio-editar
 ng generate component negocio/Negocio-listar
+
+ng generate component contacto
+
+
+ng generate component contacto
+ng generate service generalservice

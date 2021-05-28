@@ -1,1 +1,122 @@
-<p>producto-detalle works!</p>
+
+<div *ngIf="producto" class="card-section">
+    <section class="imgprincipal">
+        <img mat-card-image src="{{url}}{{producto.imagen}} " alt="{{producto.nombre}}" >
+    </section>
+
+        <mat-card class="card-section descripcion">
+          <mat-card-header >
+            <h1>{{producto.nombre}} </h1>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{producto.descripcion}}</p>
+          </mat-card-content>
+          </mat-card>
+</div>
+
+<h2 *ngIf="producto" class="paddingmargin1">Detalles de producto {{producto.nombre}} </h2>
+
+<section class="card-section">
+<!--Caracteristicas del producto-->
+<mat-accordion class="paddingmargin1">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Caracteristicas del producto
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul>
+        <li *ngFor="let caracteristica of caracteristicas">{{caracteristica.descripcion}}</li>
+    </ul>
+    </mat-expansion-panel>
+</mat-accordion>
+<!--Informacion Negocios-->
+<mat-accordion class="paddingmargin1">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Negocio
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="card-section" *ngIf="negocio">
+        <section class="imgprincipal">
+            <a [routerLink]="['/negocio/detalle',negocio._id]">
+                <img mat-card-image src="{{urlnegocio}}{{negocio.imagen}} " alt="{{negocio.nombre}}" >
+              </a>
+        </section>
+
+            <mat-card class="card-section descripcion">
+              <mat-card-header >
+                <h1>{{negocio.nombre}} </h1>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{negocio.descripcion}}</p>
+              </mat-card-content>
+              </mat-card>
+       </div>
+    </mat-expansion-panel>
+</mat-accordion>
+<!--Contacto-->
+<mat-accordion class="paddingmargin1">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Contacto
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <section *ngIf="negocio">
+        <section>
+          <section *ngIf="negocio.correo">
+            <p>
+              <mat-icon>mail</mat-icon>
+              {{negocio.correo}}
+
+            </p>
+          </section>
+          <section *ngIf="negocio.telefono">
+            <p>
+              <mat-icon>add_to_home_screen</mat-icon>
+              {{negocio.telefono}}
+
+            </p>
+          </section>
+
+
+          <section  *ngIf="negocio.instagram">
+            <a href="{{negocio.instagram}}">
+              <p>
+                <mat-icon>I</mat-icon> Instagram
+              </p>
+            </a>
+          </section>
+
+          <section  *ngIf="negocio.facebook">
+            <a href="{{negocio.facebook}}">
+              <p>
+                <mat-icon>facebook</mat-icon> Facebook
+              </p>
+            </a>
+          </section>
+
+          <section  *ngIf="negocio.whatsapp">
+            <a href="{{negocio.whatsapp}}">
+              <p>
+                <mat-icon>W</mat-icon> WhatsApp
+              </p>
+            </a>
+          </section>
+
+          <section  *ngIf="negocio.twitter">
+            <a href="{{negocio.twitter}}">
+              <p>
+                <mat-icon>T</mat-icon> Twitter
+              </p>
+            </a>
+          </section>
+
+         </section>
+
+        </section>
+
+      </mat-expansion-panel>
+</mat-accordion>

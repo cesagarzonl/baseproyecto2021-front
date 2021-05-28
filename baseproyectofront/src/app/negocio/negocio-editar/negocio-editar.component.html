@@ -15,7 +15,51 @@
       La Descripcion es requerida
     </span>
   </label>
-  
+  <label>
+    Correo:
+  <input type="text" formControlName="correo">
+  <span  *ngIf="negocioForm.controls['correo'].hasError('required') && negocioForm.controls['correo'].touched">
+    El correo es requerida
+  </span>
+</label>
+
+<label>
+  Teléfono:
+<input type="text" formControlName="telefono">
+<span  *ngIf="negocioForm.controls['telefono'].hasError('required') && negocioForm.controls['telefono'].touched">
+  El teléfono es requerida
+</span>
+</label>
+
+<label>
+  Instagram:
+<input type="text" formControlName="instagram">
+<span  *ngIf="negocioForm.controls['instagram'].hasError('required') && negocioForm.controls['instagram'].touched">
+  El Instagram es requerida
+</span>
+</label>
+
+<label>
+  Facebook:
+<input type="text" formControlName="facebook">
+<span  *ngIf="negocioForm.controls['facebook'].hasError('required') && negocioForm.controls['facebook'].touched">
+  El facebook es requerida
+</span>
+</label>
+<label>
+  Whatsapp:
+<input type="text" formControlName="whatsapp">
+<span  *ngIf="negocioForm.controls['whatsapp'].hasError('required') && negocioForm.controls['whatsapp'].touched">
+  El whatsapp es requerida
+</span>
+</label>
+<label>
+  twitter:
+<input type="text" formControlName="twitter">
+<span  *ngIf="negocioForm.controls['twitter'].hasError('required') && negocioForm.controls['twitter'].touched">
+  El twitter es requerida
+</span>
+</label>
   <label>
       Imagen:
       <input type="file" (change)="onFileChange($event)" />

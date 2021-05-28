@@ -25,6 +25,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion'
 //Componenetes 
 import { NegocioCrearComponent } from './negocio/negocio-crear/negocio-crear.component';
 import { NegocioEditarComponent } from './negocio/negocio-editar/negocio-editar.component';
@@ -33,6 +34,7 @@ import { FooterComponent } from './footer/footer/footer.component';
 import { NegocioDetalleComponent } from './negocio/negocio-detalle/negocio-detalle.component';
 import { ProductoDetalleComponent } from './producto/producto-detalle/producto-detalle.component';
 import { LandingComponent } from './landing/landing.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { LandingComponent } from './landing/landing.component';
     FooterComponent,
     NegocioDetalleComponent,
     ProductoDetalleComponent,
-    LandingComponent
+    LandingComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { LandingComponent } from './landing/landing.component';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

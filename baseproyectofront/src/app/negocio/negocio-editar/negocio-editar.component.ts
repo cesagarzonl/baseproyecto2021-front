@@ -27,7 +27,13 @@ export class NegocioEditarComponent implements OnInit {
     nombre: [null,Validators.required],
     descripcion: [null,Validators.required],
     file:[null],
-    _id: [null]
+    _id: [null],
+    correo:[null],
+    telefono:[null],
+    instagram:[null],
+    facebook:[null],
+    whatsapp:[null],
+    twitter:[null],
   }); 
   onSubmit(){
     if(this.negocioForm.valid){
@@ -64,14 +70,19 @@ export class NegocioEditarComponent implements OnInit {
       this.negocioService
       .getNegocioIdDetalle(this._id)
       .subscribe((res:any)=>{
-        console.log('res',res)
         let data =res.data.negocio
         this.imagenurl = this.url+data.imagen
         this.negocioForm.setValue({
           nombre: data.nombre,
           descripcion: data.descripcion,
           _id:data._id,
-          file:null
+          file:null,
+          correo:data.correo,
+          telefono:data.telefono,
+          instagram:data.instagram,
+          facebook:data.facebook,
+          whatsapp:data.whatsapp,
+          twitter:data.twitter
        });
       })
     });

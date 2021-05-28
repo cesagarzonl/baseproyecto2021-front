@@ -18,7 +18,14 @@ export class NegocioCrearComponent implements OnInit {
     nombre: [null,Validators.required],
     descripcion: [null,Validators.required],
     _id: [null],
-    file:[null]
+    file:[null],
+    correo:[null],
+    telefono:[null],
+    instagram:[null],
+    facebook:[null],
+    whatsapp:[null],
+    twitter:[null],
+
   }); 
 
 

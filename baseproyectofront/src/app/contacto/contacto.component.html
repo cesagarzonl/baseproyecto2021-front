@@ -1,0 +1,33 @@
+<form [formGroup]="contactoForm" (ngSubmit)="onSubmit()">
+    <section>
+        <label>
+           Nombre:
+          <input type="text" formControlName="nombre">
+          <span  *ngIf="contactoForm.controls['nombre'].hasError('required') && contactoForm.controls['nombre'].touched">
+            El Nombre es requerido
+          </span>
+        </label>
+    </section>
+    <section>
+        <label>
+            Correo:
+          <input type="text" formControlName="corrreo">
+          <span  *ngIf="contactoForm.controls['corrreo'].hasError('required') && contactoForm.controls['corrreo'].touched">
+            El Corrreo es requerida
+          </span>
+        </label>
+    </section>
+    <section>
+        <label>
+            Mensaje:
+          <textarea type="text" formControlName="mensaje"></textarea>
+          <span  *ngIf="contactoForm.controls['mensaje'].hasError('required') && contactoForm.controls['mensaje'].touched">
+            El Mensaje es requerida
+          </span>
+        </label>
+    </section>
+    <section>
+        <button type="submit" [disabled]="!contactoForm.valid">Submit</button>
+    </section>
+  </form>
+  
