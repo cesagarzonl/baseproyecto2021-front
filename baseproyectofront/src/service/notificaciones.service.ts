@@ -15,7 +15,7 @@ export class NotificacionesService {
   ErrorMensaje(mostrar:boolean,mensaje:string){
     if(mostrar){
       const miSnackBar  = this.snackBar.open(mensaje,"X",{
-        duration: 1500
+        duration: 5500
       });
     }
   }

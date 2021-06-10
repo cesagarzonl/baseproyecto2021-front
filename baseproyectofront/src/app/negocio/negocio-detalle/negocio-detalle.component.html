@@ -1,19 +1,80 @@
 
 
-<div class="card-section">
-        <section class="imgprincipal">
-            <img mat-card-image src="{{url}}{{negocio.imagen}} " alt="{{negocio.nombre}}" >
-        </section>
 
-            <mat-card class="card-section descripcion">
-              <mat-card-header >
-                <h1>{{negocio.nombre}} </h1>
-              </mat-card-header>
-              <mat-card-content>
-                <p>{{negocio.descripcion}}</p>
-              </mat-card-content>
-              </mat-card>
-</div>
+  
+  <mat-card class="paddingmargin1">
+    <section class="card-section " >
+      <section class="imgprincipal" >
+          <img mat-card-image class="igmmaxwhit" src="{{url}}{{negocio.imagen}} "  onerror="this.src='/assets/imagenes/noimagen.jpg'"  alt="{{negocio.nombre}}" >
+      </section>
+      <section class="descripcion ">
+        <mat-card-header >
+          <h1>{{negocio.nombre}} </h1>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{negocio.descripcion}}</p>
+        </mat-card-content>
+        <mat-card-footer class="contactoList">
+          <section *ngIf="negocio" >
+            <section class="card-section">
+              <section *ngIf="negocio.correo"  class="card">
+                <p>
+                  <mat-icon>mail</mat-icon>
+                  {{negocio.correo}}
+    
+                </p>
+              </section>
+              <section *ngIf="negocio.telefono"  class="card">
+                <p>
+                  <mat-icon>add_to_home_screen</mat-icon>
+                  {{negocio.telefono}}
+    
+                </p>
+              </section>
+  
+              <section  *ngIf="negocio.instagram"  class="card">
+                <a href="{{negocio.instagram}}">
+                  <p>
+                    <mat-icon>I</mat-icon> Instagram
+                  </p>
+                </a>
+              </section>
+    
+              <section  *ngIf="negocio.facebook"  class="card">
+                <a href="{{negocio.facebook}}">
+                  <p>
+                    <mat-icon>facebook</mat-icon> Facebook
+                  </p>
+                </a>
+              </section>
+    
+              <section  *ngIf="negocio.whatsapp"  class="card">
+                <a href="{{negocio.whatsapp}}">
+                  <p>
+                    <mat-icon>W</mat-icon> WhatsApp
+                  </p>
+                </a>
+              </section>
+    
+              <section  *ngIf="negocio.twitter"  class="card">
+                <a href="{{negocio.twitter}}">
+                  <p>
+                    <mat-icon>T</mat-icon> Twitter
+                  </p>
+                </a>
+              </section>
+    
+             </section>
+    
+          </section>
+        </mat-card-footer>
+
+      </section>
+
+    </section>
+
+</mat-card>
+
 
 <h2 class="paddingmargin1">Lista de Productos de {{negocio.nombre}} </h2>
 
@@ -24,7 +85,7 @@
         <mat-card-subtitle>{{producto.nombre}}</mat-card-subtitle>
       </mat-card-header>
       <a [routerLink]="['/producto/detalle',producto._id]">
-        <img mat-card-image src="{{urlproductos}}{{producto.imagen}} " alt="{{negocio.nombre}}">
+        <img mat-card-image src="{{urlproductos}}{{producto.imagen}} " onerror="this.src='/assets/imagenes/noimagen.jpg'" alt="{{negocio.nombre}}">
       </a>
       <mat-card-content>
         <p>{{producto.descripcion}}</p>

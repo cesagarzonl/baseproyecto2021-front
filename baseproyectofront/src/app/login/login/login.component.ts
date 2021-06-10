@@ -6,6 +6,7 @@ import { LoginService } from '../../../service/login.service'
 
 import { Router} from '@angular/router';
 
+import { NotificacionesService } from '../../../service/notificaciones.service'
 
 
 @Directive({selector: 'app-usuariologueado'})
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/']);
             
           }else{
-            this.mensaje = data.mensaje
+            this.notificacionesService.ErrorMensaje(true,data.mensaje)
           }
 
         })
@@ -55,6 +56,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService:LoginService,
+    private notificacionesService:NotificacionesService,
     private router:Router
     ) { }
 

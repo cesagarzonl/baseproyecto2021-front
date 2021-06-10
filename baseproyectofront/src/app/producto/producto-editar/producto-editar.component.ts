@@ -30,6 +30,7 @@ export class ProductoEditarComponent implements OnInit {
     file:[null],
     negocio:[null,Validators.required],
     _id: [null],
+    valor:[null,Validators.required],
     caracteretisticas: this.fb.array([
       this.fb.control('')
     ])
@@ -52,8 +53,13 @@ export class ProductoEditarComponent implements OnInit {
       this.productoService
         .postProductoCreate(this.productoForm.value)
         .subscribe((data:any)=>{
-          this.imagenurl = this.url+data.data.imagen
-          this.solicitaUsuario()
+          if(data.status){
+            this.imagenurl = this.url+data.data.imagen
+            this.solicitaUsuario()
+          }else{
+            this.notificacionesService.ErrorMensaje(true, data.mensaje)
+          }
+
         })
     }
   }
@@ -82,13 +88,14 @@ export class ProductoEditarComponent implements OnInit {
       .getProductoIdDetalle(this._id)
       .subscribe((res:any)=>{
         let data =res.data
-        this.imagenurl = this.url+data.imagen
         let producto = data.producto
+        this.imagenurl = this.url+producto.imagen
         let caracteristicas = data.caracteristicas
-
+        let arrayData = []
         for (let index = 0; index < caracteristicas.length; index++) {
           if(caracteristicas[index].descripcion){
             this.addAlias(caracteristicas[index].descripcion)
+            arrayData.push(caracteristicas[index].descripcion)
           }
         }
 
@@ -96,12 +103,28 @@ export class ProductoEditarComponent implements OnInit {
           nombre: producto.nombre,
           descripcion: producto.descripcion,
           _id:producto._id,
-          negocio:producto.negocio,
+          negocio:producto.negocio._id,
+          valor:producto.valor || 0,
           file:null,
-          caracteretisticas:[]
+          caracteretisticas:arrayData
        });
       })
     });
+  }
+  elminarTodo(){
+    for (let index = 0; index < this.caracteretisticas.length; index++) {
+      this.caracteretisticas.removeAt(index);
+    }
+
+
+    this.productoService.DeleteCaracterisciasProductoIdDetalle(this._id)
+      .subscribe((res:any)=>{
+        if(res.status){
+          this.solicitaUsuario()
+        }else{
+          this.notificacionesService.ErrorMensaje(true, res.mensaje)
+        }
+      })
   }
 
   getEmpresasByusuario(){
@@ -116,7 +139,8 @@ export class ProductoEditarComponent implements OnInit {
     private fb: FormBuilder,
     private productoService:ProductoService,
     private activatedRoute:ActivatedRoute,
-    private megocioService:NegocioService
+    private megocioService:NegocioService,
+    private notificacionesService:NotificacionesService,
     ) {
       this.solicitaUsuario()
     }

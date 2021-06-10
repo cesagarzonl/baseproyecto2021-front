@@ -1,73 +1,128 @@
 <form [formGroup]="negocioForm" (ngSubmit)="onSubmit()">
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Información General">
+        <div class="example-small-box mat-elevation-z4 ">
+          <h2 class="igmmaxwhit">Información General</h2> 
+          <div class="igmmaxwhit">
+        <label>
+      <div>Nombre:</div>
+      <input type="text" formControlName="nombre">
+      <div class="redDanger">
+        <span  *ngIf="negocioForm.controls['nombre'].hasError('required') && negocioForm.controls['nombre'].touched">
+          El Nombre es requerido
+        </span>
+      </div>
+    </label>
+    </div>
+
+    <label>
+        Descripcion:
+      <input type="text" formControlName="descripcion">
+      <div class="redDanger">
+        <span  *ngIf="negocioForm.controls['descripcion'].hasError('required') && negocioForm.controls['descripcion'].touched">
+          La Descripcion es requerida
+        </span>
+      </div>
+    </label>
+    </div>
+    </mat-tab>
+    <mat-tab label="Información de contacto">
+      <div class="example-small-box mat-elevation-z4 ">
+        <h2 class="igmmaxwhit">Información de contacto</h2> 
+        <div class="igmmaxwhit">
+      <label>
+        <div>Correo:</div>
+      <input type="text" formControlName="correo">
+      <div class="redDanger">
+        <span  *ngIf="negocioForm.controls['correo'].hasError('required') && negocioForm.controls['correo'].touched">
+          El correo es requerida
+        </span>
+      </div>
+      </label>
+      </div>
+      <div class="igmmaxwhit">
+        <label>
+        <div>Teléfono:</div>
+        <input type="text" formControlName="telefono">
+        <div class="redDanger">
+          <span  *ngIf="negocioForm.controls['telefono'].hasError('required') && negocioForm.controls['telefono'].touched">
+          El teléfono es requerida
+          </span>
+        </div>
+        </label>
+      </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Información Redes Sociales">
+      <div class="example-small-box mat-elevation-z4 ">
+        <h2 class="igmmaxwhit">Información Redes Sociales</h2> 
+        <div class="igmmaxwhit">
+          <label>
+          <div>Instagram:</div>
+          <input type="text" formControlName="instagram">
+          <div class="redDanger">
+            <span  *ngIf="negocioForm.controls['instagram'].hasError('required') && negocioForm.controls['instagram'].touched">
+            El Instagram es requerida
+            </span>
+          </div>
+          </label>
+        </div>
+        <div class="igmmaxwhit">
+          <label>
+          <div>Facebook:</div>
+          <input type="text" formControlName="facebook">
+          <div class="redDanger">
+            <span  *ngIf="negocioForm.controls['facebook'].hasError('required') && negocioForm.controls['facebook'].touched">
+            El facebook es requerida
+            </span>
+          </div>
+          </label>
+        </div>
+        <div class="igmmaxwhit">
+          <label>
+          <div>Whatsapp:</div>
+          <input type="text" formControlName="whatsapp">
+          <div class="redDanger">
+            <span  *ngIf="negocioForm.controls['whatsapp'].hasError('required') && negocioForm.controls['whatsapp'].touched">
+            El whatsapp es requerida
+            </span>
+          </div>
+          </label>
+        </div>
+        <div class="igmmaxwhit">
+          <label>
+          <div>twitter:</div>
+          <input type="text" formControlName="twitter">
+          <div class="redDanger">
+            <span  *ngIf="negocioForm.controls['twitter'].hasError('required') && negocioForm.controls['twitter'].touched">
+            El twitter es requerida
+            </span>
+          </div>
+          </label>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Imagen">
+      <div class="example-small-box mat-elevation-z4 ">
+        <h2 class="igmmaxwhit">Imagen</h2> 
+        <div class="igmmaxwhit">
+      <label>
+          <div>Imagen:</div>
+          <input type="file" (change)="onFileChange($event)" />
+      </label>
+      </div>
+      <div class="igmmaxwhit">
+        <label>
+            <img src="{{imagenurl}}" onerror="this.src='/assets/imagenes/noimagen.jpg'">
+        </label>
+        </div>
+    </div>
+    </mat-tab>
+  </mat-tab-group>
   
-  <label>
-     Nombre:
-    <input type="text" formControlName="nombre">
-    <span  *ngIf="negocioForm.controls['nombre'].hasError('required') && negocioForm.controls['nombre'].touched">
-      El Nombre es requerido
-    </span>
-  </label>
-
-  <label>
-      Descripcion:
-    <input type="text" formControlName="descripcion">
-    <span  *ngIf="negocioForm.controls['descripcion'].hasError('required') && negocioForm.controls['descripcion'].touched">
-      La Descripcion es requerida
-    </span>
-  </label>
-  <label>
-    Correo:
-  <input type="text" formControlName="correo">
-  <span  *ngIf="negocioForm.controls['correo'].hasError('required') && negocioForm.controls['correo'].touched">
-    El correo es requerida
-  </span>
-</label>
-
-<label>
-  Teléfono:
-<input type="text" formControlName="telefono">
-<span  *ngIf="negocioForm.controls['telefono'].hasError('required') && negocioForm.controls['telefono'].touched">
-  El teléfono es requerida
-</span>
-</label>
-
-<label>
-  Instagram:
-<input type="text" formControlName="instagram">
-<span  *ngIf="negocioForm.controls['instagram'].hasError('required') && negocioForm.controls['instagram'].touched">
-  El Instagram es requerida
-</span>
-</label>
-
-<label>
-  Facebook:
-<input type="text" formControlName="facebook">
-<span  *ngIf="negocioForm.controls['facebook'].hasError('required') && negocioForm.controls['facebook'].touched">
-  El facebook es requerida
-</span>
-</label>
-<label>
-  Whatsapp:
-<input type="text" formControlName="whatsapp">
-<span  *ngIf="negocioForm.controls['whatsapp'].hasError('required') && negocioForm.controls['whatsapp'].touched">
-  El whatsapp es requerida
-</span>
-</label>
-<label>
-  twitter:
-<input type="text" formControlName="twitter">
-<span  *ngIf="negocioForm.controls['twitter'].hasError('required') && negocioForm.controls['twitter'].touched">
-  El twitter es requerida
-</span>
-</label>
-  <label>
-      Imagen:
-      <input type="file" (change)="onFileChange($event)" />
-  </label>
+  <div class="example-small-box mat-elevation-z4 ">
+  <div class="igmmaxwhit">
   <button type="submit" [disabled]="!negocioForm.valid">Submit</button>
-  <img src="{{imagenurl}}">
-
+  </div>
+</div>
 </form>
-<p>
-  Form Status: {{ negocioForm.status }}
-</p>

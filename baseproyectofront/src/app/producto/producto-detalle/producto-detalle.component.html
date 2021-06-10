@@ -8,17 +8,20 @@
           <mat-card-header >
             <h1>{{producto.nombre}} </h1>
           </mat-card-header>
+          <mat-card-header >
+            <h2>{{producto.valor | currency}} </h2>
+          </mat-card-header>
           <mat-card-content>
             <p>{{producto.descripcion}}</p>
           </mat-card-content>
-          </mat-card>
+         </mat-card>
 </div>
 
 <h2 *ngIf="producto" class="paddingmargin1">Detalles de producto {{producto.nombre}} </h2>
 
 <section class="card-section">
 <!--Caracteristicas del producto-->
-<mat-accordion class="paddingmargin1">
+<!--mat-accordion class="paddingmargin1">
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -29,7 +32,7 @@
         <li *ngFor="let caracteristica of caracteristicas">{{caracteristica.descripcion}}</li>
     </ul>
     </mat-expansion-panel>
-</mat-accordion>
+</mat-accordion-->
 <!--Informacion Negocios-->
 <mat-accordion class="paddingmargin1">
     <mat-expansion-panel hideToggle>

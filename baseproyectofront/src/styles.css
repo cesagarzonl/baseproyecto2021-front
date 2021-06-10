@@ -26,9 +26,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     margin:1%;
     padding:1%;
 }
+.paddingmargin3{
+    margin:3%;
+    padding:3%;
+}
 .inputpositiondiv{
     position: absolute;
-    top: 250px;
+    top: 150px;
     width: 50%;
     left: 25%;
 }
@@ -42,4 +46,38 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     position: absolute;
     right: 72px;
     bottom: 17px;
+}
+
+.igmmaxwhit{
+    width: 100%;
+    height: auto;
+}
+
+.contactoList{
+    position: absolute;
+    bottom: 11%;
+}
+
+.redDanger{
+    color:red;
+}
+
+.example-small-box, .example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.backgourdblancoredondo{
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    padding: 16px;
+    background-color: #fff;
+    width: 93%;
+}
+.whit45{
+    width: 45%;
+    max-width: 45%;
 }

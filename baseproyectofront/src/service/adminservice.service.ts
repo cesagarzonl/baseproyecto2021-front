@@ -1,5 +1,4 @@
-import { Injectable  } from '@angular/core';
-
+import { Injectable } from '@angular/core';
 
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 
@@ -9,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductoService {
+export class AdminserviceService {
 
   token:string="";
   httpOptions:any
@@ -30,21 +29,9 @@ export class ProductoService {
   }
   dominio:string = 'http://localhost:3000/'
 
+  getcontactosList(){
 
-  getProductoList(){
+    return this.http.get(this.dominio+'contacto',this.httpOptions);
+  }
 
-    return this.http.get(this.dominio+'producto',this.httpOptions);
-  }
-  postProductoCreate(user:any){  
-    return this.http.post(this.dominio+'producto/crear',user,this.httpOptions);
-  }
-  postCaracteristicasCreate(user:any){  
-    return this.http.post(this.dominio+'caracteristicas/crear',user,this.httpOptions);
-  }
-  getProductoIdDetalle(id:any){  
-    return this.http.get(this.dominio+'producto/byId/'+id,this.httpOptions);
-  }
-  DeleteCaracterisciasProductoIdDetalle(id:any){  
-    return this.http.get(this.dominio+'producto/deleteCaracteresiticas/'+id,this.httpOptions);
-  }
 }

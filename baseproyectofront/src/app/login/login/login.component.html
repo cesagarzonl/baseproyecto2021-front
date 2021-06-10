@@ -1,23 +1,36 @@
 <form [formGroup]="usaurioForm" (ngSubmit)="onSubmit()">
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Login ">
+      <div class="example-small-box mat-elevation-z4 ">
+        <h2 class="igmmaxwhit">Login </h2> 
 
-    <div *ngIf="mensaje != '' ">
-        <p>{{mensaje}} </p>
-    </div>
-    
-    <label>
-      email:
-      <input type="text" formControlName="email">
-      <span  *ngIf="usaurioForm.controls['email'].hasError('required') && usaurioForm.controls['email'].touched">
-        El Email es requerido
-      </span>
-    </label>
-  
-    <label>
-        password:
-      <input type="text" formControlName="password">
-      <span  *ngIf="usaurioForm.controls['password'].hasError('required') && usaurioForm.controls['password'].touched">
-        La Contraseña es requerida
-      </span>
-    </label>
-    <button type="submit" [disabled]="!usaurioForm.valid">Submit</button>
+      <div class="igmmaxwhit">
+        <label>
+          <div>email:</div>
+          <input type="text" formControlName="email">
+          <div class="redDanger">
+          <span  *ngIf="usaurioForm.controls['email'].hasError('required') && usaurioForm.controls['email'].touched">
+            El Email es requerido
+          </span>
+          </div>
+        </label>
+      </div>
+      <div class="igmmaxwhit">
+        <label>
+          <div>password:</div>
+          <input type="text" formControlName="password">
+          <div class="redDanger">
+            <span  *ngIf="usaurioForm.controls['password'].hasError('required') && usaurioForm.controls['password'].touched">
+              La Contraseña es requerida
+            </span>
+          </div>
+        </label>
+      </div>
+      <div class="igmmaxwhit">
+        <button type="submit" [disabled]="!usaurioForm.valid">Submit</button>
+      </div>
+
+        </div>
+    </mat-tab>
+  </mat-tab-group>
   </form>

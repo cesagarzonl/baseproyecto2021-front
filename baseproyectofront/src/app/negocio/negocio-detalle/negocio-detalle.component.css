@@ -1,12 +1,13 @@
 .imgprincipal{
-    max-width: 40%;
-    width: 40%;
+    max-width: 45%;
+    width: 45%;
     margin:1%;
     padding:1%;
 }
 .descripcion{
+    max-width: 45%;
     margin:1%;
     padding:1%;
-    width: 50%;
+    width: 45%;
     background-color:#fff;
 }

@@ -24,8 +24,14 @@ export class ContactoComponent implements OnInit {
     if(this.contactoForm.valid){
       this.generalserviceService
       .postContacto(this.contactoForm.value)
-      .subscribe((data:any)=>{
-        this.notificacionesService.ErrorMensaje(true,data.mensaje)
+      .subscribe((res:any)=>{
+        console.log('res',res)
+        if(res.status){
+          this.notificacionesService.ErrorMensaje(true, 'Mensaje enviado Correctamente')
+        }else{
+          this.notificacionesService.ErrorMensaje(true, res.mensaje)
+        }
+
       })
     }
   }

@@ -1,12 +1,24 @@
-<h1 class="paddingmargin1">Lista de Negocios</h1>
-<section class="card-section">
-    <mat-card  *ngFor="let negocio of Negocios" class="card">
+<section class="card-section paddingmargin1 backgourdblancoredondo mat-elevation-z4">
+
+
+      <h1 class="whit45">Lista de Negocios</h1>
+      <section  class="whit45">
+        <mat-paginator [length]="Negocios.length"
+        [pageSize]="page_size"
+        [pageSizeOptions]="[5, 10, 20,50]"
+        (page)="handlePage($event)">
+      </mat-paginator>
+      </section>
+
+</section>
+<section class="card-section" *ngIf="Negocios.length > 0">
+    <mat-card  *ngFor="let negocio of Negocios | paginate:page_size:page_number" class="card mat-elevation-z4">
       <mat-card-header class="paddingmargin1">
         <mat-card-title>{{negocio.nombre}}</mat-card-title>
         <mat-card-subtitle>{{negocio.nombre}}</mat-card-subtitle>
       </mat-card-header>
       <a [routerLink]="['/negocio/detalle',negocio._id]">
-        <img mat-card-image src="{{Url}}{{negocio.imagen}} " alt="{{negocio.nombre}}">
+        <img mat-card-image src="{{Url}}{{negocio.imagen}} " onerror="this.src='/assets/imagenes/noimagen.jpg'" alt="{{negocio.nombre}}">
       </a>
       <mat-card-content>
         <p>{{negocio.descripcion}}</p>

@@ -20,6 +20,7 @@ export class ProductoCrearComponent implements OnInit {
     nombre: [null,Validators.required],
     descripcion: [null,Validators.required],
     negocio:[null,Validators.required],
+    valor:[null,Validators.required],
     file:[null],
     _id: [null]
   }); 

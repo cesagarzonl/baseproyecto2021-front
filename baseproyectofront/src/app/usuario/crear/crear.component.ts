@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators,FormArray } from '@angular/forms';
 import { UsusuarioService } from '../../../service/ususuario.service'
 import { NotificacionesService } from '../../../service/notificaciones.service'
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-crear',
@@ -15,33 +16,15 @@ export class CrearComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  /*updateName() {
-    this.name.setValue('Nancy');
-  }*/
+
   usaurioForm = this.fb.group({
     email: [null,Validators.required],
     password: [null,Validators.required],
     usuario: [null,Validators.required],
     _id: [null],
-    //adicionales: this.fb.array([
-      //this.fb.control('')
-    //]),
+
   });
 
-  /*get adicionales() {
-    return this.usaurioForm.get('adicionales') as FormArray;
-  }
-
-  /*addAlias() {
-    this.adicionales.push(this.fb.control(''));
-  }*/
-
-  /*usaurioForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    usuario: new FormControl(''),
-    _id: new FormControl(''),
-  })*/
 
   onSubmit(){
     if(this.usaurioForm.valid){
@@ -49,7 +32,15 @@ export class CrearComponent implements OnInit {
       this.ususuarioService
         .postUserCreate(this.usaurioForm.value)
         .subscribe((data:any)=>{
-          console.log('data',data)
+          if(data.status){
+            localStorage.setItem('usuario', JSON.stringify(data.data.usuario));
+            localStorage.setItem('login', JSON.stringify(data.data.token));
+            this.router.navigate(['/']);
+            
+          }else{
+            this.notificacionesService.ErrorMensaje(true,data.mensaje)
+          }
+
           this.notificacionesService.ErrorMensaje(true,data.menssaje)
         })
     }
@@ -57,6 +48,7 @@ export class CrearComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private ususuarioService:UsusuarioService,
-    private notificacionesService:NotificacionesService
+    private notificacionesService:NotificacionesService,
+    private router:Router
     ) { }
 }

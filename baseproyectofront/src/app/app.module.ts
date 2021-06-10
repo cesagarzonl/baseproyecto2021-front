@@ -25,7 +25,11 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-import { MatExpansionModule } from '@angular/material/expansion'
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatTableModule } from '@angular/material/table'
 //Componenetes 
 import { NegocioCrearComponent } from './negocio/negocio-crear/negocio-crear.component';
 import { NegocioEditarComponent } from './negocio/negocio-editar/negocio-editar.component';
@@ -35,6 +39,8 @@ import { NegocioDetalleComponent } from './negocio/negocio-detalle/negocio-detal
 import { ProductoDetalleComponent } from './producto/producto-detalle/producto-detalle.component';
 import { LandingComponent } from './landing/landing.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { ContactoListComponent } from './admin/contacto/contacto-list/contacto-list.component';
+import { PaginatePipe } from './pipes/paginate.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +62,9 @@ import { ContactoComponent } from './contacto/contacto.component';
     NegocioDetalleComponent,
     ProductoDetalleComponent,
     LandingComponent,
-    ContactoComponent
+    ContactoComponent,
+    ContactoListComponent,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,
@@ -70,7 +78,11 @@ import { ContactoComponent } from './contacto/contacto.component';
     MatSidenavModule,
     MatToolbarModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

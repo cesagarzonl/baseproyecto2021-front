@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { NegocioService } from "../../../service/negocio.service"
 
 @Component({
@@ -16,5 +17,13 @@ export class NegocioListarComponent implements OnInit {
       this.Negocios =  data.data
     })
   }
-
+  /**
+   * Paginacion
+   */
+  page_size:number = 4
+  page_number:number = 0
+  handlePage(e:PageEvent){
+    this.page_size = e.pageSize
+    this.page_number = e.pageIndex
+  }
 }
