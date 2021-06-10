@@ -4,6 +4,7 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { SettingsService } from '../app/core/settings.service'
 
 @Injectable({
   providedIn: 'root'
@@ -27,23 +28,23 @@ export class NegocioService {
       })
     }  
   }
-  dominio:string = 'http://localhost:3000/'
+
 
 
   getNegocioList(){
 
-    return this.http.get(this.dominio+'negocio',this.httpOptions);
+    return this.http.get(SettingsService.host+'negocio',this.httpOptions);
   }
   postNegocioCreate(user:any){  
-    return this.http.post(this.dominio+'negocio/crear',user,this.httpOptions);
+    return this.http.post(SettingsService.host+'negocio/crear',user,this.httpOptions);
   }
   getNegocioIdDetalle(id:any){  
-    return this.http.get(this.dominio+'negocio/byId/'+id,this.httpOptions);
+    return this.http.get(SettingsService.host+'negocio/byId/'+id,this.httpOptions);
   }
   getNegociobyuser(){
-    return this.http.get(this.dominio+'negocio/empresasUser',this.httpOptions);
+    return this.http.get(SettingsService.host+'negocio/empresasUser',this.httpOptions);
   }
   getNegociosDestacados(){
-    return this.http.get(this.dominio+'negocio/destacados',this.httpOptions);
+    return this.http.get(SettingsService.host+'negocio/destacados',this.httpOptions);
   }
 }

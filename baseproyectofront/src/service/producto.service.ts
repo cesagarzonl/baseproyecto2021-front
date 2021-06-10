@@ -2,7 +2,7 @@ import { Injectable  } from '@angular/core';
 
 
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
-
+import { SettingsService } from '../app/core/settings.service'
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -28,23 +28,23 @@ export class ProductoService {
       })
     }  
   }
-  dominio:string = 'http://localhost:3000/'
+
 
 
   getProductoList(){
 
-    return this.http.get(this.dominio+'producto',this.httpOptions);
+    return this.http.get(SettingsService.host+'producto',this.httpOptions);
   }
   postProductoCreate(user:any){  
-    return this.http.post(this.dominio+'producto/crear',user,this.httpOptions);
+    return this.http.post(SettingsService.host+'producto/crear',user,this.httpOptions);
   }
   postCaracteristicasCreate(user:any){  
-    return this.http.post(this.dominio+'caracteristicas/crear',user,this.httpOptions);
+    return this.http.post(SettingsService.host+'caracteristicas/crear',user,this.httpOptions);
   }
   getProductoIdDetalle(id:any){  
-    return this.http.get(this.dominio+'producto/byId/'+id,this.httpOptions);
+    return this.http.get(SettingsService.host+'producto/byId/'+id,this.httpOptions);
   }
   DeleteCaracterisciasProductoIdDetalle(id:any){  
-    return this.http.get(this.dominio+'producto/deleteCaracteresiticas/'+id,this.httpOptions);
+    return this.http.get(SettingsService.host+'producto/deleteCaracteresiticas/'+id,this.httpOptions);
   }
 }

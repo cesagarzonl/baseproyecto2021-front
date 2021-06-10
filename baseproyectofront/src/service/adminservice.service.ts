@@ -4,7 +4,7 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-
+import { SettingsService } from '../app/core/settings.service'
 @Injectable({
   providedIn: 'root'
 })
@@ -27,11 +27,10 @@ export class AdminserviceService {
       })
     }  
   }
-  dominio:string = 'http://localhost:3000/'
 
   getcontactosList(){
 
-    return this.http.get(this.dominio+'contacto',this.httpOptions);
+    return this.http.get(SettingsService.host+'contacto',this.httpOptions);
   }
 
 }

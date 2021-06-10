@@ -28,10 +28,10 @@ ng generate component admin/contacto/Contacto-list
 ng update @angular/material@10
 
 
+ng generate service settings
 
 
-
-###proyecto requerimiento 
+### proyecto requerimiento 
 {
   "name": "baseproyectofront",
   "version": "0.0.0",
