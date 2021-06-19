@@ -8,6 +8,7 @@ import { Router} from '@angular/router';
 
 import { NotificacionesService } from '../../../service/notificaciones.service'
 
+import { ChangeloginServiceService } from '../../../service/changelogin-service.service'
 
 @Directive({selector: 'app-usuariologueado'})
 class ChildDirective {
@@ -44,8 +45,8 @@ export class LoginComponent implements OnInit {
           if(data.status){
             localStorage.setItem('usuario', JSON.stringify(data.data.usuario));
             localStorage.setItem('login', JSON.stringify(data.data.token));
+            this.changeloginServiceService.showUserLoggedId()
             this.router.navigate(['/']);
-            
           }else{
             this.notificacionesService.ErrorMensaje(true,data.mensaje)
           }
@@ -57,7 +58,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private loginService:LoginService,
     private notificacionesService:NotificacionesService,
-    private router:Router
+    private router:Router,
+    private changeloginServiceService:ChangeloginServiceService
     ) { }
 
 }

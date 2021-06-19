@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { ChangeloginServiceService } from '../../../service/changelogin-service.service'
 
 @Component({
   selector: 'app-usuariologueado',
@@ -7,17 +8,16 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class UsuariologueadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private changeloginServiceService:ChangeloginServiceService) { }
   usuario:any
 
   @Input() reiniciaradicional!: boolean;
 
 
   ngOnInit(): void {
-    this.getuser()
-    if (this.reiniciaradicional) {
-      this.getuser()
-    }
+    this.changeloginServiceService.$subjetct.subscribe(()=>{
+      this.getuser()    
+    })
   }
 
   getuser(): void{
