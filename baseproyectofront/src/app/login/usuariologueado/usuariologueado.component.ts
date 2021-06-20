@@ -15,8 +15,9 @@ export class UsuariologueadoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getuser()
     this.changeloginServiceService.$subjetct.subscribe(()=>{
-      this.getuser()    
+      this.getuser()
     })
   }
 

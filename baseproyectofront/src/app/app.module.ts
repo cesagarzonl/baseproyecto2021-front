@@ -41,6 +41,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ContactoListComponent } from './admin/contacto/contacto-list/contacto-list.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { PagenofoundComponent } from './pagenofound/pagenofound.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     LandingComponent,
     ContactoComponent,
     ContactoListComponent,
-    PaginatePipe
+    PaginatePipe,
+    PagenofoundComponent
   ],
   imports: [
     BrowserModule,

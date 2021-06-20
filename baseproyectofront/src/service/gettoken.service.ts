@@ -11,6 +11,8 @@ export class GettokenService {
     let tokenLocalString:any= localStorage.getItem('login');
     if(tokenLocalString!=null){
       this.token=JSON.parse(tokenLocalString)
+    }else{
+      this.token = ''
     }
    }
 
@@ -18,6 +20,13 @@ export class GettokenService {
    getToken(){
     return this.token
    }
-
+   isLogin(){
+    let tokenLocalString:any= localStorage.getItem('login');
+    if(tokenLocalString!=null){
+      return true
+    }else{
+      return false
+    }
+   }
 
 }
