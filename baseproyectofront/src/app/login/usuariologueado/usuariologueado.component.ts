@@ -25,6 +25,8 @@ export class UsuariologueadoComponent implements OnInit {
     let userLocal = JSON.parse(userLocalString)
     if(userLocal!=null){
       this.usuario=userLocal
+    }else{
+      this.usuario = undefined
     }
   }
 

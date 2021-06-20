@@ -6,7 +6,7 @@ import { SettingsService } from '../app/core/settings.service'
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-
+import { GettokenService } from './gettoken.service'
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +16,14 @@ export class UsusuarioService {
 
   token:string="";
   httpOptions:any
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private gettokenService:GettokenService) {
 
-    let tokenLocalString:any= localStorage.getItem('login');
-    let tokenLocal = JSON.parse(tokenLocalString)
-    if(tokenLocalString!=null){
-      this.token=JSON.parse(tokenLocalString)
-
-    }
 
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        authorization: 'beaber '+this.token
+        authorization: 'beaber '+this.gettokenService.getToken()
       })
     }  
   }

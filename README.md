@@ -30,6 +30,9 @@ ng update @angular/material@10
 
 ng generate service settings
 
+ng generate service changeloginService
+
+ng generate service gettoken
 
 ### proyecto requerimiento 
 {
