@@ -10,6 +10,6 @@ export  const negociosRoutes:  Routes  = [
     { path: 'list', component: NegocioListarComponent},
     { path: 'crear',canActivate: [AuthGuard], component: NegocioCrearComponent},
     { path: 'editar/:id',canActivate: [AuthGuard], component: NegocioEditarComponent},
-    { path: 'detalle/:id', component: NegocioDetalleComponent}
-    
+    { path: 'detalle/:id', component: NegocioDetalleComponent},
+    { path: 'list/:misnegocios', component: NegocioListarComponent},
 ];

@@ -30,6 +30,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatTableModule } from '@angular/material/table'
+import {MatButtonModule} from '@angular/material/button'; 
 //Componenetes 
 import { NegocioCrearComponent } from './negocio/negocio-crear/negocio-crear.component';
 import { NegocioEditarComponent } from './negocio/negocio-editar/negocio-editar.component';
@@ -84,7 +85,8 @@ import { PagenofoundComponent } from './pagenofound/pagenofound.component';
     MatStepperModule,
     MatTabsModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

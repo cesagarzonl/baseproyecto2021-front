@@ -1,9 +1,27 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span style="cursor: pointer;" [routerLink]="['/']" >Inveniet</span>
+
+
     <span class="example-spacer"></span>
+    <mat-sidenav-container  class="example-container" *ngIf="usuario">
+      <button mat-flat-button color="primary" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="espacioMenuBoton">
+        <mat-icon>home</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item  [routerLink]="['/negocio/list/true']">
+          <mat-icon>business_center</mat-icon>
+          <span> Mis Negocios</span>
+        </button>
+        <button mat-menu-item  [routerLink]="['/producto/list/true']" >
+          <mat-icon>shopping_basket</mat-icon>
+          <span> Mis Productos</span>
+        </button>
+
+      </mat-menu>
+    </mat-sidenav-container>
     <mat-sidenav-container  class="example-container">
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="espacioMenuBoton">
+      <button mat-flat-button color="primary" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="espacioMenuBoton">
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
@@ -34,6 +52,7 @@
 
       </mat-menu>
     </mat-sidenav-container>
+
   </mat-toolbar-row>
 </mat-toolbar>
 

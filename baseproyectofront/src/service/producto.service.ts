@@ -26,9 +26,12 @@ export class ProductoService {
 
 
 
-  getProductoList(){
-
-    return this.http.get(SettingsService.host+'producto',this.httpOptions);
+  getProductoList(misproducto:any){
+    if(misproducto){
+      return this.http.get(SettingsService.host+'producto/misproductos',this.httpOptions);
+    }else{
+      return this.http.get(SettingsService.host+'producto',this.httpOptions);
+    }
   }
   postProductoCreate(user:any){  
     return this.http.post(SettingsService.host+'producto/crear',user,this.httpOptions);

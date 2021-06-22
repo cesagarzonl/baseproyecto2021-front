@@ -26,10 +26,14 @@ export class NegocioService {
 
 
 
-  getNegocioList(){
+  getNegocioList(misnegocios:any){
+      if(misnegocios){
+        return this.http.get(SettingsService.host+'negocio/misnegocios',this.httpOptions);
+      }else{
+        return this.http.get(SettingsService.host+'negocio',this.httpOptions);
+      }
+    }
 
-    return this.http.get(SettingsService.host+'negocio',this.httpOptions);
-  }
   postNegocioCreate(user:any){  
     return this.http.post(SettingsService.host+'negocio/crear',user,this.httpOptions);
   }

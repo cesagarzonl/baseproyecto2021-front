@@ -21,12 +21,10 @@
                 <p>{{negocio.descripcion}}</p>
               </mat-card-content>
               <mat-card-actions>
+                
                   <a [routerLink]="['/negocio/detalle',negocio._id]">
-                      <button mat-button >Detalle</button>
+                    <button mat-raised-button color="primary">Detalle</button>
                   </a>
-                  <a [routerLink]="['/negocio/editar',negocio._id]">
-                    <button mat-button >editar</button>
-                </a>
                 </mat-card-actions>
               </mat-card>
         </section>
@@ -49,11 +47,8 @@
               </mat-card-content>
               <mat-card-actions>
                   <a [routerLink]="['/producto/detalle',producto._id]">
-                      <button mat-button >Detalle</button>
+                    <button mat-raised-button color="primary">Detalle</button>
                   </a>
-                  <a [routerLink]="['/producto/editar',producto._id]">
-                    <button mat-button >editar</button>
-                </a>
                 </mat-card-actions>
               </mat-card>
         </section>

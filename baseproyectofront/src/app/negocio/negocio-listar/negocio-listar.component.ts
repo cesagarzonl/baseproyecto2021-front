@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { NegocioService } from "../../../service/negocio.service"
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-negocio-listar',
@@ -10,10 +11,15 @@ import { NegocioService } from "../../../service/negocio.service"
 export class NegocioListarComponent implements OnInit {
   Url:string = 'http://localhost:3000/static/negocios/'
   Negocios:any = []
-  constructor(private negocioService:NegocioService) { }
-
+  misnegocios:any
+  
+  
   ngOnInit(): void {
-    this.negocioService.getNegocioList().subscribe((data:any)=>{
+    
+    this.activatedRoute.params.subscribe(params=>{
+      this.misnegocios = params.misproductos
+    });
+    this.negocioService.getNegocioList(this.misnegocios).subscribe((data:any)=>{
       this.Negocios =  data.data
     })
   }
@@ -26,4 +32,6 @@ export class NegocioListarComponent implements OnInit {
     this.page_size = e.pageSize
     this.page_number = e.pageIndex
   }
+  constructor(private negocioService:NegocioService,
+    private activatedRoute:ActivatedRoute) { }
 }
