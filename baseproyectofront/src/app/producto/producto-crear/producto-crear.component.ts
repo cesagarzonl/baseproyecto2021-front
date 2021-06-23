@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,Validators,FormArray } from '@angular/forms';
+import { FormBuilder,Validators,FormArray, FormGroup} from '@angular/forms';
 import { ProductoService } from "../../../service/producto.service"
 import { NotificacionesService } from '../../../service/notificaciones.service'
 import { NegocioService } from "../../../service/negocio.service"
@@ -24,10 +24,20 @@ export class ProductoCrearComponent implements OnInit {
     file:[null],
     _id: [null]
   }); 
- 
+  isEditable = false;
+  firstFormGroup: any;
+  secondFormGroup: any;
   
   ngOnInit(): void {
     this.getEmpresasByusuario()
+    this.firstFormGroup = this.fb.group({
+      firstCtrl: ['']
+    });
+    this.secondFormGroup = this.fb.group({
+      secondCtrl: ['']
+    });
+
+
   }
   
   onSubmit(){

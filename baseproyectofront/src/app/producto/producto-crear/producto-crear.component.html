@@ -1,72 +1,82 @@
-<form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()" class="example-small-box mat-elevation-z4 ">
 
-<mat-tab-group dynamicHeight>
-  <mat-tab label="Información General">
-    <div class="example-small-box mat-elevation-z4 ">
-      <h2 class="igmmaxwhit">Información General</h2> 
-      <div class="igmmaxwhit">
-        <label >
-          <div>Nombre:</div>
-          <input type="text" formControlName="nombre">
-          <div class="redDanger">
-            <span  *ngIf="productoForm.controls['nombre'].hasError('required') && productoForm.controls['nombre'].touched">
-              El Nombre es requerido
-            </span>
-          </div>
-        </label>
-      </div>
-      <div class="igmmaxwhit">
-        <label class="igmmaxwhit">
-          <div>Descripcion:</div>
-          <input type="text" formControlName="descripcion">
-          <div class="redDanger">
-            <span  *ngIf="productoForm.controls['descripcion'].hasError('required') && productoForm.controls['descripcion'].touched">
-              La Descripcion es requerida
-            </span>
-          </div>
-        </label>
-      </div>
-      <div class="igmmaxwhit">
-      <label>
-        <div>Valor:</div>
-      <input type="number" formControlName="valor">
-      <div class="redDanger">
-        <span  *ngIf="productoForm.controls['valor'].hasError('required') && productoForm.controls['valor'].touched">
-          El Valor es requerida
-        </span>
-      </div>
-      </label> 
-      </div>
-    </div>
-  </mat-tab>
-  <mat-tab label="Información Detallada">
-    <div class="example-large-box mat-elevation-z4">
-      <h2 class="igmmaxwhit">Información Detallada</h2> 
-      <div class="igmmaxwhit">
+  <mat-vertical-stepper linear #stepper>
+    <mat-step >
+      <div class="example-small-box mat-elevation-z4 ">
+        <ng-template matStepLabel>Información General</ng-template>
+        <div class="igmmaxwhit">
+          <label >
+            <div>Nombre:</div>
+            <input type="text" formControlName="nombre">
+            <div class="redDanger">
+              <span  *ngIf="productoForm.controls['nombre'].hasError('required') && productoForm.controls['nombre'].touched">
+                El Nombre es requerido
+              </span>
+            </div>
+          </label>
+        </div>
+        <div class="igmmaxwhit">
+          <label class="igmmaxwhit">
+            <div>Descripcion:</div>
+            <input type="text" formControlName="descripcion">
+            <div class="redDanger">
+              <span  *ngIf="productoForm.controls['descripcion'].hasError('required') && productoForm.controls['descripcion'].touched">
+                La Descripcion es requerida
+              </span>
+            </div>
+          </label>
+        </div>
+        <div class="igmmaxwhit">
         <label>
-          <div>Empresa:</div>
-          <select name="negocio" formControlName="negocio">
-            <option value="" select>Seleccione una empresa</option>
-            <option *ngFor ="let empresa of empresas" value="{{empresa._id}}">{{empresa.nombre}}</option>
-          </select>
-          <div class="redDanger">
-            <span  *ngIf="productoForm.controls['negocio'].hasError('required') && productoForm.controls['negocio'].touched">
-              La Empresa es requerida
-            </span>
-          </div>
-        </label>
+          <div>Valor:</div>
+        <input type="number" formControlName="valor">
+        <div class="redDanger">
+          <span  *ngIf="productoForm.controls['valor'].hasError('required') && productoForm.controls['valor'].touched">
+            El Valor es requerida
+          </span>
+        </div>
+        </label> 
+        </div>
       </div>
-      <div>
-        <label>
-            <div>Imagen:</div>
-            <input type="file" (change)="onFileChange($event)" />
-        </label>
+      <button type="button" mat-raised-button color="primary" mat-button matStepperNext>Siguiente</button>
+    </mat-step>
+    <mat-step >
+      <div class="example-large-box mat-elevation-z4">
+        <ng-template matStepLabel>Información Detallada</ng-template>
+  
+        <div class="igmmaxwhit">
+          <label>
+            <div>Empresa:</div>
+            <select name="negocio" formControlName="negocio">
+              <option value="" select>Seleccione una empresa</option>
+              <option *ngFor ="let empresa of empresas" value="{{empresa._id}}">{{empresa.nombre}}</option>
+            </select>
+            <div class="redDanger">
+              <span  *ngIf="productoForm.controls['negocio'].hasError('required') && productoForm.controls['negocio'].touched">
+                La Empresa es requerida
+              </span>
+            </div>
+          </label>
+        </div>
+        <div>
+          <label>
+              <div>Imagen:</div>
+              <input type="file" (change)="onFileChange($event)" />
+            </label>
+        </div>
       </div>
-      
-      <button type="submit" [disabled]="!productoForm.valid">Submit</button>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+      <button type="button" mat-button matStepperPrevious>Atrás</button>
+      <button type="button" mat-raised-button color="primary" mat-button matStepperNext>Siguiente</button>
+    </mat-step>
+    <mat-step >
+      <ng-template mat-raised-button color="primary" matStepLabel>Guardar</ng-template>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!productoForm.valid">Guardar</button>
+      <button type="button" mat-button matStepperPrevious>Atrás</button>
+    </mat-step>
+  </mat-vertical-stepper>
+  </form>
+  
   
 
-  </form>
+
+

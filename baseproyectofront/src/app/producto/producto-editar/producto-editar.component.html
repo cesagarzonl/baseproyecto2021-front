@@ -1,9 +1,9 @@
-<form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()" class="example-small-box mat-elevation-z4 ">
 
-    <mat-tab-group dynamicHeight>
-      <mat-tab label="Información General">
+    <mat-vertical-stepper linear #stepper>
+      <mat-step >
         <div class="example-small-box mat-elevation-z4 ">
-          <h2 class="igmmaxwhit">Información General</h2> 
+          <ng-template matStepLabel>Información General</ng-template>
           <div class="igmmaxwhit">
             <label >
               <div>Nombre:</div>
@@ -38,10 +38,12 @@
           </label> 
           </div>
         </div>
-      </mat-tab>
-      <mat-tab label="Información Detallada">
+        <button type="button" mat-raised-button color="primary" mat-button matStepperNext>Siguiente</button>
+      </mat-step>
+      <mat-step >
         <div class="example-large-box mat-elevation-z4">
-          <h2 class="igmmaxwhit">Información Detallada</h2> 
+          <ng-template matStepLabel>Información Detallada</ng-template>
+    
           <div class="igmmaxwhit">
             <label>
               <div>Empresa:</div>
@@ -56,39 +58,27 @@
               </div>
             </label>
           </div>
-          <div class="igmmaxwhit">
+          <div>
             <label>
                 <div>Imagen:</div>
                 <input type="file" (change)="onFileChange($event)" />
-                <img src="{{imagenurl}}" class="paddingmargin1">
+                <img src="{{imagenurl}}" class="paddingmargin1 imgMaxwhit" onerror="this.src='/assets/imagenes/noimagen.jpg'">
               </label>
           </div>
         </div>
-      </mat-tab>
-      <!--mat-tab  label="Caracteretistica">
-        <div class="example-large-box mat-elevation-z4">
-        <h2 class="igmmaxwhit">Caracteretistica</h2> 
-        <div class="igmmaxwhit">
-          <button type="button" (click)="addAlias('')"><mat-icon>add</mat-icon></button>
-          <button type="button" (click)="elminarTodo()"><mat-icon>delete</mat-icon> Eliminar Todas</button>
-        </div>
-        <div formArrayName="caracteretisticas">  
-          <div *ngFor="let caracteretistica of caracteretisticas.controls; let i=index">
-            <div class="igmmaxwhit">
-              <label>
-                Caracteretistica:
-                <input type="text" [formControlName]="i">
-                <button (click)="clearAlias(i)"><mat-icon>clear</mat-icon></button>        
-              </label>
-            </div>
-          </div>
-        </div>
-        </div>
-      </mat-tab-->
-    </mat-tab-group>
-    <div class="example-large-box mat-elevation-z4">
-      <div class="igmmaxwhit">
-        <button type="submit" [disabled]="!productoForm.valid">Submit</button>
-      </div>
-      </div>
-  </form> 
+        <button type="button" mat-button matStepperPrevious>Atrás</button>
+        <button type="button" mat-raised-button color="primary" mat-button matStepperNext>Siguiente</button>
+      </mat-step>
+      <mat-step >
+        <ng-template mat-raised-button color="primary" matStepLabel>Guardar</ng-template>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!productoForm.valid">Guardar</button>
+        <button type="button" mat-button matStepperPrevious>Atrás</button>
+      </mat-step>
+    </mat-vertical-stepper>
+    </form>
+    
+    
+
+
+
+  

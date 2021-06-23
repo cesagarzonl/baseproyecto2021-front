@@ -31,13 +31,13 @@ export class ProductoEditarComponent implements OnInit {
     negocio:[null,Validators.required],
     _id: [null],
     valor:[null,Validators.required],
-    caracteretisticas: this.fb.array([
+    /*caracteretisticas: this.fb.array([
       this.fb.control('')
-    ])
+    ])*/
   }); 
 
 
-  get caracteretisticas() {
+  /*get caracteretisticas() {
     return this.productoForm.get('caracteretisticas') as FormArray;
   }
   addAlias(text:string) {
@@ -45,7 +45,7 @@ export class ProductoEditarComponent implements OnInit {
   }
   clearAlias(i:number){
     this.caracteretisticas.removeAt(i);
-  }
+  }*/
 
 
   onSubmit(){
@@ -55,6 +55,7 @@ export class ProductoEditarComponent implements OnInit {
         .subscribe((data:any)=>{
           if(data.status){
             this.imagenurl = this.url+data.data.imagen
+            this.notificacionesService.ErrorMensaje(true, data.mensaje)
             this.solicitaUsuario()
           }else{
             this.notificacionesService.ErrorMensaje(true, data.mensaje)
@@ -92,12 +93,12 @@ export class ProductoEditarComponent implements OnInit {
         this.imagenurl = this.url+producto.imagen
         let caracteristicas = data.caracteristicas
         let arrayData = []
-        for (let index = 0; index < caracteristicas.length; index++) {
+        /*for (let index = 0; index < caracteristicas.length; index++) {
           if(caracteristicas[index].descripcion){
             this.addAlias(caracteristicas[index].descripcion)
             arrayData.push(caracteristicas[index].descripcion)
           }
-        }
+        }*/
 
         this.productoForm.setValue({
           nombre: producto.nombre,
@@ -106,12 +107,13 @@ export class ProductoEditarComponent implements OnInit {
           negocio:producto.negocio._id,
           valor:producto.valor || 0,
           file:null,
-          caracteretisticas:arrayData
+          //caracteretisticas:arrayData
        });
       })
     });
   }
-  elminarTodo(){
+
+  /*elminarTodo(){
     for (let index = 0; index < this.caracteretisticas.length; index++) {
       this.caracteretisticas.removeAt(index);
     }
@@ -125,7 +127,7 @@ export class ProductoEditarComponent implements OnInit {
           this.notificacionesService.ErrorMensaje(true, res.mensaje)
         }
       })
-  }
+  }*/
 
   getEmpresasByusuario(){
     this.megocioService.getNegociobyuser().subscribe((res:any)=>{
