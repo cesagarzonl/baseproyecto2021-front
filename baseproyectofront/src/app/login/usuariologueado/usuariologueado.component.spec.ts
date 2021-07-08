@@ -1,13 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsuariologueadoComponent } from './usuariologueado.component';
+import { MatMenuModule} from '@angular/material/menu';
 
-describe('UsuariologueadoComponent', () => {
+describe('UsuariologueadoComponent test', () => {
   let component: UsuariologueadoComponent;
   let fixture: ComponentFixture<UsuariologueadoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[MatMenuModule],
       declarations: [ UsuariologueadoComponent ]
     })
     .compileComponents();

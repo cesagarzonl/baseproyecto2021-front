@@ -10,6 +10,6 @@ export  const productosRoutes:  Routes  = [
     { path: 'list', component: ProductoListarComponent},
     { path: 'crear',canActivate: [AuthGuard], component: ProductoCrearComponent},
     { path: 'editar/:id', canActivate: [AuthGuard],component: ProductoEditarComponent},
-    { path: 'detalle/:id',canActivate: [AuthGuard],component:ProductoDetalleComponent },
+    { path: 'detalle/:id',component:ProductoDetalleComponent },
     { path: 'list/:misproductos', component: ProductoListarComponent},
 ];

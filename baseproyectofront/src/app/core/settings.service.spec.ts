@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SettingsService } from './settings.service';
+import { Injectable } from '@angular/core';
 
 describe('SettingsService', () => {
   let service: SettingsService;

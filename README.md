@@ -34,6 +34,11 @@ ng generate service changeloginService
 
 ng generate service gettoken
 
+ng generate component pagenofound
+
+ng generate directive correoValidator
+
+
 ### proyecto requerimiento 
 {
   "name": "baseproyectofront",

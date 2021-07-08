@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactoListComponent } from './contacto-list.component';
+import { Component, OnInit } from '@angular/core';
+import { AdminserviceService } from '../../../../service/adminservice.service'
+
+import { PageEvent } from '@angular/material/paginator';
+
+
 
 describe('ContactoListComponent', () => {
   let component: ContactoListComponent;

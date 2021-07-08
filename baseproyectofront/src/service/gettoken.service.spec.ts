@@ -1,16 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 
 import { GettokenService } from './gettoken.service';
+import { Injectable } from '@angular/core';
+
 
 describe('GettokenService', () => {
   let service: GettokenService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(GettokenService);
+    TestBed.configureTestingModule({
+      declarations:[GettokenService]
+    });
+
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('GettokenService should be created', () => {
+    expect(GettokenService).toBeTruthy();
   });
 });
+

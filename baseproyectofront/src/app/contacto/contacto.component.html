@@ -1,39 +1,71 @@
-<form [formGroup]="contactoForm" (ngSubmit)="onSubmit()">
-    <section>
-        <label>
-           Nombre:
-          <input type="text" formControlName="nombre">
-          <span  *ngIf="contactoForm.controls['nombre'].hasError('required') && contactoForm.controls['nombre'].touched">
-            El Nombre es requerido
-          </span>
-        </label>
-    </section>
-    <section>
-        <label>
-            Correo:
-          <input type="text" formControlName="corrreo">
-          <span  *ngIf="contactoForm.controls['corrreo'].hasError('required') && contactoForm.controls['corrreo'].touched">
-            El Corrreo es requerida
-          </span>
-        </label>
-    </section>
-    <section>
-        <label>
-            Mensaje:
-          <textarea type="text" formControlName="mensaje"></textarea>
-          <span  *ngIf="contactoForm.controls['mensaje'].hasError('required') && contactoForm.controls['mensaje'].touched">
-            El Mensaje es requerida
-          </span>
-        </label>
-    </section>
-    <section>
+<form [formGroup]="contactoForm" (ngSubmit)="onSubmit()" class="example-small-box mat-elevation-z4 ">
+  <h3>Contacto</h3>
+  <mat-vertical-stepper linear #stepper>
+    <mat-step label="Información Contacto">
+      <div class="example-small-box mat-elevation-z4 ">
+
+        <div class="igmmaxwhit">
       <label>
-          Url:
-        <input type="text" formControlName="url">
-      </label>
-  </section>
-    <section>
-        <button type="submit" [disabled]="!contactoForm.valid">Submit</button>
-    </section>
+    <div>Nombre:</div>
+
+    <input type="text" formControlName="nombre">
+
+    <div class="redDanger">
+      <span  *ngIf="contactoForm.controls['nombre'].hasError('required') && contactoForm.controls['nombre'].touched">
+        El Nombre es requerido
+      </span>
+    </div>
+  </label>
+  </div>
+
+  <label>
+    <div>Correo:</div>
+    <input type="text" formControlName="corrreo">
+    <div class="redDanger">
+      <span  *ngIf="contactoForm.controls['corrreo'].hasError('required') && contactoForm.controls['corrreo'].touched">
+        El Corrreo es requerida
+      </span>
+    </div>
+  </label>
+  </div>
+  <button type="button" mat-raised-button color="primary" mat-button matStepperNext>Siguiente</button>
+</mat-step>
+
+
+<mat-step label="Información Reporte">
+  <div class="example-small-box mat-elevation-z4 ">
+
+    <div class="igmmaxwhit">
+  <label>
+<div>Mensaje:</div>
+
+<textarea type="text" formControlName="mensaje"></textarea>
+
+<div class="redDanger">
+  <span  *ngIf="contactoForm.controls['mensaje'].hasError('required') && contactoForm.controls['mensaje'].touched">
+    El Mensaje es requerida
+  </span>
+</div>
+</label>
+</div>
+
+<label>
+<div>Url a reportar:</div>
+<input type="text" formControlName="url">
+<div class="redDanger">
+  <span  *ngIf="contactoForm.controls['corrreo'].hasError('required') && contactoForm.controls['corrreo'].touched">
+    El Corrreo es requerida
+  </span>
+</div>
+</label>
+</div>
+
+<button type="submit" mat-raised-button color="primary" [disabled]="!contactoForm.valid">Submit</button>
+</mat-step>
+
+
+
+  </mat-vertical-stepper>
+
   </form>
   

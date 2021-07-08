@@ -5,6 +5,7 @@ import { UsusuarioService } from '../../../service/ususuario.service'
 import { NotificacionesService } from '../../../service/notificaciones.service'
 import { Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.component.html',
@@ -18,7 +19,7 @@ export class CrearComponent implements OnInit {
   }
 
   usaurioForm = this.fb.group({
-    email: [null,Validators.required],
+    email: [null,Validators.required,Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$/)],
     password: [null,Validators.required],
     usuario: [null,Validators.required],
     _id: [null],

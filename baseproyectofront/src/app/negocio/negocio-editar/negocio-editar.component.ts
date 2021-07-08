@@ -77,12 +77,12 @@ export class NegocioEditarComponent implements OnInit {
           descripcion: data.descripcion,
           _id:data._id,
           file:null,
-          correo:data.correo,
-          telefono:data.telefono,
-          instagram:data.instagram,
-          facebook:data.facebook,
-          whatsapp:data.whatsapp,
-          twitter:data.twitter
+          correo:data.correo || '',
+          telefono:data.telefono || '',
+          instagram:data.instagram || '',
+          facebook:data.facebook || '',
+          whatsapp:data.whatsapp || '',
+          twitter:data.twitter || ''
        });
       })
     });

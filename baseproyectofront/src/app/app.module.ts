@@ -44,6 +44,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ContactoListComponent } from './admin/contacto/contacto-list/contacto-list.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { PagenofoundComponent } from './pagenofound/pagenofound.component';
+import { CorreoValidatorDirective } from './correo-validator.directive';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PagenofoundComponent } from './pagenofound/pagenofound.component';
     ContactoComponent,
     ContactoListComponent,
     PaginatePipe,
-    PagenofoundComponent
+    PagenofoundComponent,
+    CorreoValidatorDirective
   ],
   imports: [
     BrowserModule,

@@ -2,13 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MensajesComponent } from './mensajes.component';
 
-describe('MensajesComponent', () => {
+import {MatSnackBar} from "@angular/material/snack-bar";
+describe('MensajesComponent test', () => {
   let component: MensajesComponent;
   let fixture: ComponentFixture<MensajesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MensajesComponent ]
+      declarations: [ MensajesComponent ],
+      imports:[MatSnackBar]
     })
     .compileComponents();
   });

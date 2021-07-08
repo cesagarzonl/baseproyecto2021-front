@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductoCrearComponent } from './producto-crear.component';
+import { FormBuilder,Validators,FormArray, FormGroup} from '@angular/forms';
 
 describe('ProductoCrearComponent', () => {
   let component: ProductoCrearComponent;
@@ -8,7 +9,7 @@ describe('ProductoCrearComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductoCrearComponent ]
+      declarations: [ ProductoCrearComponent,FormBuilder,Validators ]
     })
     .compileComponents();
   });

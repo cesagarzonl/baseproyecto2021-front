@@ -17,7 +17,7 @@ export class NegocioListarComponent implements OnInit {
   ngOnInit(): void {
     
     this.activatedRoute.params.subscribe(params=>{
-      this.misnegocios = params.misproductos
+      this.misnegocios = params.misnegocios
     });
     this.negocioService.getNegocioList(this.misnegocios).subscribe((data:any)=>{
       this.Negocios =  data.data

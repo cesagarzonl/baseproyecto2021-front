@@ -28,6 +28,9 @@
           <a [routerLink]="['/producto/detalle',producto._id]">
             <button mat-raised-button color="primary">Detalle</button>
           </a>
+          <a *ngIf="misproductos" [routerLink]="['/producto/editar',producto._id]">
+            <button mat-raised-button color="warn" mat-button >editar</button>
+          </a>
         </mat-card-actions>
       </mat-card>
 </section>
