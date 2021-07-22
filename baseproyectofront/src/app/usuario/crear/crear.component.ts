@@ -4,7 +4,7 @@ import { FormBuilder,Validators,FormArray } from '@angular/forms';
 import { UsusuarioService } from '../../../service/ususuario.service'
 import { NotificacionesService } from '../../../service/notificaciones.service'
 import { Router} from '@angular/router';
-
+import { ChangeloginServiceService } from '../../../service/changelogin-service.service';
 
 @Component({
   selector: 'app-crear',
@@ -19,7 +19,7 @@ export class CrearComponent implements OnInit {
   }
 
   usaurioForm = this.fb.group({
-    email: [null,Validators.required,Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$/)],
+    email: [null,Validators.required],
     password: [null,Validators.required],
     usuario: [null,Validators.required],
     _id: [null],
@@ -34,15 +34,17 @@ export class CrearComponent implements OnInit {
         .postUserCreate(this.usaurioForm.value)
         .subscribe((data:any)=>{
           if(data.status){
-            localStorage.setItem('usuario', JSON.stringify(data.data.usuario));
-            localStorage.setItem('login', JSON.stringify(data.data.token));
+            console.log('data.data.data',data.data.data)
+
+            localStorage.setItem('usuario', JSON.stringify(data.data.data.usuario));
+            localStorage.setItem('login', JSON.stringify(data.data.data.token));
+            this.changeloginServiceService.showUserLoggedId()
             this.router.navigate(['/']);
-            
           }else{
             this.notificacionesService.ErrorMensaje(true,data.mensaje)
           }
 
-          this.notificacionesService.ErrorMensaje(true,data.menssaje)
+          this.notificacionesService.ErrorMensaje(true,data.mensaje)
         })
     }
   }
@@ -50,6 +52,8 @@ export class CrearComponent implements OnInit {
     private fb: FormBuilder,
     private ususuarioService:UsusuarioService,
     private notificacionesService:NotificacionesService,
-    private router:Router
+    private router:Router,
+    private changeloginServiceService:ChangeloginServiceService
+
     ) { }
 }

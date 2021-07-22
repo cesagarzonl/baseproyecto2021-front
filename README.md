@@ -87,3 +87,6 @@ ng generate directive correoValidator
     "typescript": "^4.1.5"
   }
 }
+
+## documentacion redireccion de angular
+https://www.tektutorialshub.com/angular/the-requested-url-was-not-found-on-this-server-error-in-angular/

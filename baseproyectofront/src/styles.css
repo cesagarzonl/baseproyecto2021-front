@@ -84,3 +84,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .imgMaxwhit{
     max-width: 500px;
 }
+
+@media (max-width: 1100px) {
+    .example-small-box,.example-large-box{
+        flex-wrap: wrap;
+        text-align: center;
+    }
+  }
+  
