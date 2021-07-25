@@ -38,4 +38,7 @@ export class UsusuarioService {
   getUserIdDetalle(id:any){  
     return this.http.get(SettingsService.host+'user/byId/'+id,{responseType: 'json'});
   }
+  Olvidoclavee(user:any){  
+    return this.http.post(SettingsService.host+'user/olvido',user,{responseType: 'json'});
+  }
 }

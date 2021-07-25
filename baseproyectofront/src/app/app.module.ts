@@ -45,6 +45,8 @@ import { ContactoListComponent } from './admin/contacto/contacto-list/contacto-l
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { PagenofoundComponent } from './pagenofound/pagenofound.component';
 import { CorreoValidatorDirective } from './correo-validator.directive';
+import { CambioComponent } from './password/cambio/cambio.component';
+import { OlvioComponent } from './password/olvio/olvio.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { CorreoValidatorDirective } from './correo-validator.directive';
     ContactoListComponent,
     PaginatePipe,
     PagenofoundComponent,
-    CorreoValidatorDirective
+    CorreoValidatorDirective,
+    CambioComponent,
+    OlvioComponent
   ],
   imports: [
     BrowserModule,

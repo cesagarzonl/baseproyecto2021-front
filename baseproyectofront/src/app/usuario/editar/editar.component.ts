@@ -23,7 +23,6 @@ export class EditarComponent implements OnInit {
 
   usaurioForm = this.fb.group({
     email: [null,Validators.required],
-    password: [null,Validators.required],
     usuario: [null,Validators.required],
     _id: [null],
     //adicionales: this.fb.array([
@@ -51,12 +50,9 @@ export class EditarComponent implements OnInit {
         this.ususuarioService
         .getUserIdDetalle(this._id)
         .subscribe((res:any)=>{
-          console.log('res',res.usuario)
-          console.log('res.usuario.email',res.usuario.email)
           let data =res.usuario
           this.usaurioForm.setValue({
             email: res.usuario.email,
-            password: res.usuario.password,
             usuario:res.usuario.usuario,
             _id:res.usuario._id
          });

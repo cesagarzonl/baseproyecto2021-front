@@ -1,13 +1,14 @@
 <form [formGroup]="usaurioForm" (ngSubmit)="onSubmit()">
   <mat-tab-group dynamicHeight>
-    <mat-tab label="Login ">
-      <div class="example-small-box mat-elevation-z4 ">
-        <h2 class="igmmaxwhit">Login </h2> 
+    <mat-tab label="Ingresa ">
+      <div class="example-small-box mat-elevation-z4 flex-wraptect-aling">
+        <h2 class="igmmaxwhit">Ingresa </h2> 
 
       <div class="igmmaxwhit">
         <label>
-          <div>email:</div>
-          <input type="text" formControlName="email">
+          <div>Correo:</div>
+          <span> (*) </span>
+          <input type="text" formControlName="email" placeholder="Correo@miCorreo.com">
           <div class="redDanger">
           <span  *ngIf="usaurioForm.controls['email'].hasError('required') && usaurioForm.controls['email'].touched">
             El Email es requerido
@@ -17,8 +18,9 @@
       </div>
       <div class="igmmaxwhit">
         <label>
-          <div>password:</div>
-          <input type="password" formControlName="password">
+          <div>Contraseña:</div>
+          <span> (*) </span>
+          <input type="password" formControlName="password" placeholder="Contraseña">
           <div class="redDanger">
             <span  *ngIf="usaurioForm.controls['password'].hasError('required') && usaurioForm.controls['password'].touched">
               La Contraseña es requerida
@@ -26,6 +28,9 @@
           </div>
         </label>
       </div>
+
+      <a [routerLink]="['/password/olvido']" class="card">Recordar contraseña</a>
+
       <div class="igmmaxwhit">
         <button mat-raised-button color="primary" type="submit" [disabled]="!usaurioForm.valid" >Ingresar</button>
       </div>

@@ -1,27 +1,40 @@
 <form [formGroup]="usaurioForm" (ngSubmit)="onSubmit()">
   <mat-tab-group dynamicHeight>
     <mat-tab label="Registro ">
-      <div class="example-small-box mat-elevation-z4 ">
+      <div class="example-small-box mat-elevation-z4 flex-wraptect-aling">
         <h2 class="igmmaxwhit">Registro </h2> 
 
       <div class="igmmaxwhit">
         <label>
-          <div>email:</div>
-          <input type="text" formControlName="email">
+          <div>Correo:</div>
+          <span> (*) </span>
+          <input type="text" formControlName="email" placeholder="Correo@miCorreo.com">
           <div class="redDanger">
             <span  *ngIf="usaurioForm.controls['email'].hasError('required') && usaurioForm.controls['email'].touched">
-              El Email es requerido
+              El Correo es requerido.
+            </span>
+          </div>
+        </label>
+      </div>
+      <div class="igmmaxwhit">
+        <label>
+            <div>Usuario:</div>
+            <span> (*) </span>
+            <input type="text" formControlName="usuario" placeholder="Usuario">
+          <div class="redDanger">
+            <span  *ngIf="usaurioForm.controls['usuario'].hasError('required') && usaurioForm.controls['usuario'].touched">
+              El Usuario es requerido
             </span>
           </div>
         </label>
       </div>
 
 
-
     <div class="igmmaxwhit">
       <label>
-        <div>password:</div>
-        <input type="password" formControlName="password">
+        <div>Contraseña:</div>
+        <span> (*) </span>
+        <input type="password" formControlName="password" placeholder="Contraseña">
         <div class="redDanger">
           <span  *ngIf="usaurioForm.controls['password'].hasError('required') && usaurioForm.controls['password'].touched">
             La Contraseña es requerida
@@ -29,18 +42,28 @@
         </div>
       </label>
     </div>
+
     <div class="igmmaxwhit">
       <label>
-          <div>usuario:</div>
-        <input type="text" formControlName="usuario">
+        <div>Confirmar Contraseña:</div>
+        <span> (*) </span>
+        <input type="password" formControlName="password2" placeholder="Contraseña">
         <div class="redDanger">
-          <span  *ngIf="usaurioForm.controls['usuario'].hasError('required') && usaurioForm.controls['usuario'].touched">
-            El Usuario es requerido
+          <span  *ngIf="usaurioForm.controls['password2'].hasError('required') && usaurioForm.controls['password2'].touched">
+            La Contraseña es requerida
           </span>
+          <span *ngIf="usaurioForm.controls['password2'].hasError('confirmedValidator') && usaurioForm.controls['password2'].touched">
+            Contraseña y confirmar contraseña no son iguales.
+          </span>
+
         </div>
       </label>
     </div>
 
+
+    <div class="igmmaxwhit grilsClaro">
+      <p> (*) Campos Obligatorios </p>
+    </div>
   <div class="igmmaxwhit">
     <button mat-raised-button color="primary" type="submit" [disabled]="!usaurioForm.valid" >Guardar</button>
   </div>

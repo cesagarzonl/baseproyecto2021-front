@@ -6,6 +6,9 @@ import { NotificacionesService } from '../../../service/notificaciones.service'
 import { Router} from '@angular/router';
 import { ChangeloginServiceService } from '../../../service/changelogin-service.service';
 
+//Validations
+import { ConfirmedValidator } from '../../../utils/confirmValidations';
+
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.component.html',
@@ -22,11 +25,16 @@ export class CrearComponent implements OnInit {
     email: [null,Validators.required],
     password: [null,Validators.required],
     usuario: [null,Validators.required],
+    password2: [null],
     _id: [null],
 
-  });
+  },{validator:ConfirmedValidator('password','password2')});
 
+  get f(){
 
+    return this.usaurioForm.controls;
+
+  }
   onSubmit(){
     if(this.usaurioForm.valid){
       console.warn(this.usaurioForm.value);      

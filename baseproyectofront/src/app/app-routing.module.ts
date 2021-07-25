@@ -12,7 +12,7 @@ import { LandingComponent }  from './landing/landing.component'
 import { ContactoComponent } from './contacto/contacto.component'
 import { adminRoutes } from './admin/adminRoutes'
 import { PagenofoundComponent } from './pagenofound/pagenofound.component'
-
+import { passwordRoutes } from './password/passwordroutes'
 //guards
 import { AuthGuard } from './auth/auth.guard'
 
@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'producto', children: productosRoutes},
   { path: 'negocio', children: negociosRoutes},
   { path: 'admin',children: adminRoutes},
+  { path: 'password',children:passwordRoutes},
   { path: 'login',component: LoginComponent},
   { path: 'logout',component: LogoutComponent},  
   { path: 'landing',component: LandingComponent},
