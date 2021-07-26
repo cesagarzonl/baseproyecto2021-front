@@ -27,10 +27,15 @@
           <mat-icon>person</mat-icon>
           <span>{{usuario.usuario}}</span>
         </button>
+        <button mat-menu-item [routerLink]="['/password/cambio']"  *ngIf="usuario">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cambio Clave </span>
+        </button>
         <button mat-menu-item [routerLink]="['/logout']"  *ngIf="usuario">
           <mat-icon>exit_to_app</mat-icon>
           <span>Salir</span>
         </button>
+
         <button mat-menu-item [routerLink]="['/login']"  *ngIf="!usuario">
           <mat-icon>exit_to_app</mat-icon>
           <span>Ingresa </span>

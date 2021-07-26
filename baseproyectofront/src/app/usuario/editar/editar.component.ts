@@ -5,6 +5,8 @@ import { UsusuarioService } from '../../../service/ususuario.service'
 
 import { ActivatedRoute } from '@angular/router';
 
+import { ChangeloginServiceService } from '../../../service/changelogin-service.service';
+
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.component.html',
@@ -34,8 +36,9 @@ export class EditarComponent implements OnInit {
     if(this.usaurioForm.valid){
       this.ususuarioService
         .postUserCreate(this.usaurioForm.value)
-        .subscribe((data)=>{
-          console.log('data',data)
+        .subscribe((data:any)=>{
+          localStorage.setItem('usuario', JSON.stringify(data.data));
+          this.changeloginServiceService.showUserLoggedId()
         })
     }
   }
@@ -43,18 +46,19 @@ export class EditarComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private ususuarioService:UsusuarioService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private changeloginServiceService:ChangeloginServiceService
     ) { 
       this.activatedRoute.params.subscribe(params=>{
         this._id = params.id
         this.ususuarioService
         .getUserIdDetalle(this._id)
         .subscribe((res:any)=>{
-          let data =res.usuario
+          let data =res.data
           this.usaurioForm.setValue({
-            email: res.usuario.email,
-            usuario:res.usuario.usuario,
-            _id:res.usuario._id
+            email: data.email,
+            usuario:data.usuario,
+            _id:data._id
          });
         })
       });

@@ -11,19 +11,12 @@ export function ConfirmedValidator(controlName: string, matchingControlName: str
         const matchingControl = formGroup.controls[matchingControlName];
 
         if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
-
             return;
-
         }
-        console.log('control.value !== matchingControl.value',control.value,matchingControl.value)
         if (control.value !== matchingControl.value) {
-            console.log('Error match')
             matchingControl.setErrors({ confirmedValidator: true });
-
         } else {
-            console.log('ok')
             matchingControl.setErrors(null);
-
         }
 
     }

@@ -29,10 +29,9 @@ export class UsusuarioService {
   }
 
   getUserList(){
-
     return this.http.get(SettingsService.host+'user',this.httpOptions);
   }
-  postUserCreate(user:any){  
+  postUserCreate(user:any){
     return this.http.post(SettingsService.host+'user/crear',user,{responseType: 'json'});
   }
   getUserIdDetalle(id:any){  
@@ -40,5 +39,8 @@ export class UsusuarioService {
   }
   Olvidoclavee(user:any){  
     return this.http.post(SettingsService.host+'user/olvido',user,{responseType: 'json'});
+  }
+  Cambioclavee(user:any){  
+    return this.http.post(SettingsService.host+'user/cambioclave',user,this.httpOptions);
   }
 }
