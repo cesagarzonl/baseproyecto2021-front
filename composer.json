@@ -1,0 +1,28 @@
+{
+    "name": "cigarzon/baseproyecto2021-front",
+    "type": "drupal-module",
+    "description": "Client for mayoral elections and governorates 2019",
+    "keywords": [
+      "basic",
+      "test",
+      "pruebas",
+      "estudio"
+    ],
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "repositories": [
+      {
+        "type": "package",
+        "package": {
+          "name": "cigarzon/baseproyecto2021-front",
+          "version": "1.0.0",
+          "type": "drupal-library",
+          "source": {
+            "url": "https://git.assembla.com/RCNRADIO/Drupal-Services.angular-services.git",
+            "type": "git",
+            "reference": "origin/master"
+          }
+        }
+      }
+    ]
+  }
